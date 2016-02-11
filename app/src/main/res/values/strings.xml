@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">BudgetBuddy</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_add_purchase">AddPurchase</string>
+    <string name="title_activity_goals">Goals</string>
+    <string name="title_activity_spending">Spending</string>
+    <string name="title_activity_set_goal">SetGoal</string>
+</resources>
