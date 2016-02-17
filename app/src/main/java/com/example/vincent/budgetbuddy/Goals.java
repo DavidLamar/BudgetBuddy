@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 
 public class Goals extends AppCompatActivity {
 
@@ -52,5 +53,6 @@ public class Goals extends AppCompatActivity {
         Button button = (Button)v;
         startActivity(new Intent(getApplicationContext(), BudgetBuddy.class));
     }
+
 
 }
