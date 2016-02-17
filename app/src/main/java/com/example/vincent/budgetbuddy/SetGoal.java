@@ -9,9 +9,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 public class SetGoal extends AppCompatActivity {
+  //  public Goals goals = new Goals();
+//    public ProgressBar gas = (ProgressBar) (findViewById(R.id.gasProgressBar));;
+
+//    public int budget;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,24 +33,44 @@ public class SetGoal extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+
+
     }
 
     public void goalAdded(View v){
-        Button button = (Button)v;
-        startActivity(new Intent(getApplicationContext(), Goals.class));
-
-        EditText endDate = (EditText) findViewById(R.id.endDateField);
-        EditText amount = (EditText) findViewById(R.id.amountField);
-        EditText type = (EditText) findViewById(R.id.typeField);
+         /* EditText type = (EditText) findViewById(R.id.typeField);
 
         /*
         Toast.makeText(getApplicationContext(), "Purchase amount: $" + amount.getText().toString() + "\n" + "Place purchased: "
                 + place.getText().toString(), Toast.LENGTH_LONG).show();
         */
 
+        Button button = (Button)v;
+        startActivity(new Intent(getApplicationContext(), Goals.class));
+
+ //       EditText amount = (EditText) findViewById(R.id.amountField);
+ //       int amountParse = Integer.parseInt(amount.getText().toString());
+
         Toast.makeText(getApplicationContext(), "Goal added", Toast.LENGTH_LONG).show();
+
+//        setBudget(amountParse);
+  //      setBudgetLimit();
+
+    }
+/*
+    public void setBudget(int pBudget) {
+        budget = pBudget;
     }
 
+    public int getBudget() {
+        return budget;
+    }
+
+    public void setBudgetLimit() {
+        gas.setMax(getBudget());
+    }
+*/
     public void selectPurchase(View v){
         Button button = (Button)v;
         startActivity(new Intent(getApplicationContext(), AddPurchase.class));
@@ -65,4 +90,5 @@ public class SetGoal extends AppCompatActivity {
         Button button = (Button)v;
         startActivity(new Intent(getApplicationContext(), BudgetBuddy.class));
     }
+
 }
