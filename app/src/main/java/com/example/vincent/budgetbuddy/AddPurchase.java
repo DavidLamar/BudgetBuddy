@@ -117,49 +117,8 @@ public class AddPurchase extends AppCompatActivity implements AdapterView.OnItem
     }
 
     public void savePurchase(Purchase p){
-        try {
-            File file = new File(getFilesDir(), OUTPUT_FILE);
-            String saveText = p.getPrice() + " " + p.getMethod() + " " + p.getDate() + " " + p.getLocation() + " " + p.getCategory() + "-";
-            ArrayList<String> lines = new ArrayList<String>();
-            FileOutputStream fos;
-            FileInputStream fis;
-
-            try {
-                //We need to load in the text file first, so that it doesn't all get deleted
-                fis = new FileInputStream(file);
-                InputStreamReader isr = new InputStreamReader(fis);
-                BufferedReader br = new BufferedReader(isr);
-
-                lines = new ArrayList<String>();
-                String[] s = br.readLine().split("-");
-                Log.i("File ", "____________________Loading text file...__________________________");
-                for(int i = 0; i < s.length; i++){
-                    lines.add(s[i] + "-");
-                    Log.i("File ", "Loading: " + s[i]);
-                }
-                fis.close();
-            } catch (Exception e) {
-                Log.i("File", "No file");
-            }
-
-            lines.add(saveText);
-
-            try {
-                //Then write all of our stuff back to the file. This will get a lot slower
-                //as more files are added. But that will only be after thousands of entries.
-                fos = new FileOutputStream(file);
-                for(int i = 0; i < lines.size(); i++){
-                    fos.write(lines.get(i).getBytes());
-                }
-                Log.i("File", "Saving: " + saveText);
-                fos.close();
-
-            } catch (Exception e){
-                e.printStackTrace();
-            }
-        } catch (Exception e){
-            e.printStackTrace();
-        }
+        FileIO fio = new FileIO(this);
+        fio.addPurchase(p);
     }
 
     public void deletePurchases(){
