@@ -6,10 +6,13 @@
     <string name="title_activity_spending">Spending</string>
     <string name="title_activity_set_goal">SetGoal</string>
 
-    <string-array name="GOALS_Spending_Categories">
+    <string-array name="Goals_Spending_Categories">
         <item>Gas</item>
         <item>Entertainment</item>
         <item>Food</item>
+        <item>Bills</item>
+        <item>Shopping</item>
+        <item>Other</item>
     </string-array>
 
     <string-array name="Spending_Categories">
@@ -18,4 +21,5 @@
         <item>Monthly</item>
         <item>Yearly</item>
     </string-array>
+
 </resources>

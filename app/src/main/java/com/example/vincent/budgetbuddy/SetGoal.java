@@ -14,9 +14,9 @@ import android.widget.Toast;
 
 public class SetGoal extends AppCompatActivity {
   //  public Goals goals = new Goals();
-//    public ProgressBar gas = (ProgressBar) (findViewById(R.id.gasProgressBar));;
-
-//    public int budget;
+  //  public ProgressBar gas = (ProgressBar) (findViewById(R.id.gasProgressBar));;
+//    String [] Goals_Spending_Categories;
+    public int budget;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +34,7 @@ public class SetGoal extends AppCompatActivity {
             }
         });
 
+ //      Goals_Spending_Categories = getResources().getStringArray(R.array.Goals_Spending_Categories);
 
 
     }
@@ -45,20 +46,14 @@ public class SetGoal extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Purchase amount: $" + amount.getText().toString() + "\n" + "Place purchased: "
                 + place.getText().toString(), Toast.LENGTH_LONG).show();
         */
-
         Button button = (Button)v;
         startActivity(new Intent(getApplicationContext(), Goals.class));
-
  //       EditText amount = (EditText) findViewById(R.id.amountField);
  //       int amountParse = Integer.parseInt(amount.getText().toString());
-
         Toast.makeText(getApplicationContext(), "Goal added", Toast.LENGTH_LONG).show();
 
-//        setBudget(amountParse);
-  //      setBudgetLimit();
-
     }
-/*
+
     public void setBudget(int pBudget) {
         budget = pBudget;
     }
@@ -67,10 +62,10 @@ public class SetGoal extends AppCompatActivity {
         return budget;
     }
 
-    public void setBudgetLimit() {
-        gas.setMax(getBudget());
+    public void gasGoal() {
+
     }
-*/
+
     public void selectPurchase(View v){
         Button button = (Button)v;
         startActivity(new Intent(getApplicationContext(), AddPurchase.class));
