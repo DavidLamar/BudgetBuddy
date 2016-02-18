@@ -116,6 +116,11 @@ public class FileIO {
         }
     }
 
+    /**
+     * Deletes a purchase at index; The index is the the order in which the purchases were made
+     *
+     * @param index The index of the purchase being deleted
+     */
     public void deletePurchase(int index){
 
     }
