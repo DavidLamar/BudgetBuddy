@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.vincent.budgetbuddy">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".BudgetBuddy"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".AddPurchase"
+            android:label="@string/title_activity_add_purchase"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Goals"
+            android:label="@string/title_activity_goals"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Spending"
+            android:label="@string/title_activity_spending"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SetGoal"
+            android:label="@string/title_activity_set_goal"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
+    </application>
+
+</manifest>
