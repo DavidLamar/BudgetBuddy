@@ -7,6 +7,7 @@
     <string name="title_activity_set_goal">SetGoal</string>
 
     <string-array name="Goals_Spending_Categories">
+        <item>Select One</item>
         <item>Gas</item>
         <item>Entertainment</item>
         <item>Food</item>

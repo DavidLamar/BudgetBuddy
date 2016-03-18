@@ -27,8 +27,6 @@ import java.util.ArrayList;
 
 public class AddPurchase extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    private static final String OUTPUT_FILE = "purchase_data.txt";
-
     private Spinner spinner;
     private static final String[] paths = {"Cash", "Check", "Credit", "Debit"};
     @Override
@@ -122,7 +120,6 @@ public class AddPurchase extends AppCompatActivity implements AdapterView.OnItem
     }
 
     public void deletePurchases(){
-        File file = new File(getFilesDir(), OUTPUT_FILE);
-        file.delete();
+
     }
 }

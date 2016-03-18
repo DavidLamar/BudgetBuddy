@@ -105,13 +105,13 @@
         android:textSize="18sp"
         android:textStyle="normal"
         android:onClick="displayInfo"
-        android:layout_below="@+id/endDateField"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
         android:background="#4dd35a"
         android:textColor="#ffffff"
         android:width="120sp"
-        android:allowUndo="false" />
+        android:allowUndo="false"
+        android:layout_above="@+id/button8"
+        android:layout_alignRight="@+id/textView8"
+        android:layout_alignEnd="@+id/textView8" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -174,5 +174,29 @@
         android:layout_alignTop="@+id/button9"
         android:layout_toRightOf="@+id/button9"
         android:layout_toEndOf="@+id/button9" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Category"
+        android:id="@+id/categoryOfPurchase"
+        android:layout_below="@+id/endDateField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/endDateField"
+        android:layout_alignEnd="@+id/endDateField" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/selectCategories"
+        android:spinnerMode="dropdown"
+
+        android:layout_below="@+id/categoryOfPurchase"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:nestedScrollingEnabled="false"
+        android:clickable="false" />
 
 </RelativeLayout>
