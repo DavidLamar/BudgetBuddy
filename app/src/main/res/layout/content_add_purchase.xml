@@ -10,7 +10,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.vincent.budgetbuddy.AddPurchase"
-    android:background="#eaebeb">
+    android:background="#eaebeb"
+    tools:showIn="@layout/activity_add_purchase">
 
     <TextView
         android:layout_width="wrap_content"
@@ -70,10 +71,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10sp"
-        android:id="@+id/spinner1"
+        android:id="@+id/purchaseType"
         android:layout_below="@+id/textView8"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:spinnerMode="dropdown" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -81,7 +83,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Date of Purchase"
         android:id="@+id/textView9"
-        android:layout_below="@+id/spinner1"
+        android:layout_below="@+id/purchaseType"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:textIsSelectable="false"
@@ -190,13 +192,14 @@
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/selectCategories"
+        android:id="@+id/categorySpinner"
         android:spinnerMode="dropdown"
-
+        android:entries="@array/Goals_Spending_Categories"
+        android:clickable="false"
+        android:visibility="visible"
         android:layout_below="@+id/categoryOfPurchase"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:nestedScrollingEnabled="false"
-        android:clickable="false" />
+        android:layout_alignParentStart="true" />
+
 
 </RelativeLayout>
