@@ -150,7 +150,7 @@ public class FileIO {
 
         try {
             //Set up file manipulation
-            file = new File(activity.getFilesDir(), GOAL_OUTPUT);
+            file = new File(activity.getFilesDir(), CATEGORY_OUTPUT);
             fis = new FileInputStream(file);
             isr = new InputStreamReader(fis);
             br = new BufferedReader(isr);
@@ -214,7 +214,7 @@ public class FileIO {
 
         //The following code handles all of the file writing:
         try {
-            file = new File(activity.getFilesDir(), GOAL_OUTPUT);
+            file = new File(activity.getFilesDir(), CATEGORY_OUTPUT);
             fos = new FileOutputStream(file);
 
             for(int i = 0; i < categories.size(); i++){
