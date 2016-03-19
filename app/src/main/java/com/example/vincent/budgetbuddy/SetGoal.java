@@ -55,7 +55,7 @@ public class SetGoal extends AppCompatActivity {
                 + place.getText().toString(), Toast.LENGTH_LONG).show();
         */
 
-        Button button = (Button) v;
+  //      Button button = (Button) v;
         startActivity(new Intent(getApplicationContext(), Goals.class));
 
         //Set budget to user input

@@ -65,15 +65,6 @@ public class Goals extends AppCompatActivity {
         shopping = (ProgressBar) findViewById(R.id.shoppingProgressBar);
         other = (ProgressBar) findViewById(R.id.otherProgressBar);
 
-
-        // Hard code in progressbar budget (TEMP)
-//        gas.setProgress(20);
-//        entertainment.setProgress(99);
-//        food.setProgress(99);
-//        bills.setProgress(75);
-//        shopping.setProgress(30);
-//        other.setProgress(5);
-
         FileIO file = new FileIO(this);
         //Reads amount spent in each category from file
         if (file.getPurchases().length > 0) {
