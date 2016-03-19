@@ -67,10 +67,9 @@ public class SetGoal extends AppCompatActivity {
         String text = mySpinner.getSelectedItem().toString();
         setCategory(text);
 
-        Intent i = new Intent(getApplicationContext(), Goals.class);
-        i.putExtra("budget",getBudget());
-        i.putExtra("category",getCategory());
-        startActivity(i);
+        FileIO file = new FileIO(this);
+        Goal g = new Goal(getCategory(), getBudget());
+        file.addGoal(g);
 
  //       doAfterClick();
         Toast.makeText(getApplicationContext(), "Goal added", Toast.LENGTH_LONG).show();
