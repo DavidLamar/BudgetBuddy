@@ -36,6 +36,43 @@ public class FileIO {
     }
 
 
+    public boolean checkPurchases(){
+        Purchase[] p = getPurchases();
+        if(p == null){
+            File file = new File(activity.getFilesDir(), PURCHASE_OUTPUT);
+            if(!file.exists()){
+                try {
+                    file.createNewFile();
+                } catch (Exception e) {
+                    Log.e("FILE ", "Could not create Purchase File!");
+                }
+            }
+            return false;
+        }
+
+        return true;
+    }
+
+
+    public boolean checkGoals(){
+        Goal[] g = getGoals();
+        if(g == null){
+            return false;
+        }
+
+        return true;
+    }
+
+
+    public boolean checkCategories() {
+        Category[] c = getCategories();
+        if(c == null){
+            return false;
+        }
+
+        return true;
+    }
+
     /**
      * Gets the saved purchases from the purchase data file
      *
