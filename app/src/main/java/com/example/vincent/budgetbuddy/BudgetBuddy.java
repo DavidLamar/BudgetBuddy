@@ -11,9 +11,11 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class BudgetBuddy extends AppCompatActivity {
 
+    private TextView totalBudget;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,14 +23,24 @@ public class BudgetBuddy extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        FileIO file = new FileIO(this);
+        int budgetsCombined = 0;
+
+        Goal[] tempCategoryBudget = file.getGoals();
+        for (int i = 0; i < tempCategoryBudget.length; i++) {
+            budgetsCombined += tempCategoryBudget[i].getSpendingAmount();
+        }
+        totalBudget = (TextView) findViewById(R.id.totalBudget);
+        totalBudget.setText("Your total budget is $" + budgetsCombined);
+
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
 
 
     }
