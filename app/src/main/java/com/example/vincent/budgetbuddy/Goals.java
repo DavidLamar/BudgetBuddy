@@ -93,27 +93,31 @@ public class Goals extends AppCompatActivity {
         }
         //reads budget set for each category from file
         Goal[] tempCategoryBudget = file.getGoals();
-        for (int i = 0; i < tempCategoryBudget.length; i++) {
-            if (tempCategoryBudget[i].getCategory().equalsIgnoreCase("Gas")) {
-                gasBudget = (int) tempCategoryBudget[i].getSpendingAmount();
-                gas.setMax(gasBudget);
-            } else if (tempCategoryBudget[i].getCategory().equalsIgnoreCase("Entertainment")) {
-                entertainmentBudget = (int) tempCategoryBudget[i].getSpendingAmount();
-                entertainment.setMax(entertainmentBudget);
-            } else if (tempCategoryBudget[i].getCategory().equalsIgnoreCase("Food")) {
-                foodBudget = (int) tempCategoryBudget[i].getSpendingAmount();
-                food.setMax(foodBudget);
-            } else if (tempCategoryBudget[i].getCategory().equalsIgnoreCase("Bills")) {
-                billsBudget = (int) tempCategoryBudget[i].getSpendingAmount();
-                bills.setMax(billsBudget);
-            } else if (tempCategoryBudget[i].getCategory().equalsIgnoreCase("Shopping")) {
-                shoppingBudget = (int) tempCategoryBudget[i].getSpendingAmount();
-                shopping.setMax(shoppingBudget);
-            } else if (tempCategoryBudget[i].getCategory().equalsIgnoreCase("Other")) {
-                otherBudget = (int) tempCategoryBudget[i].getSpendingAmount();
-                other.setMax(otherBudget);
+        if(tempCategoryBudget != null) {
+            for (int i = 0; i < tempCategoryBudget.length; i++) {
+                if (tempCategoryBudget[i].getCategory().equalsIgnoreCase("Gas")) {
+                    gasBudget = (int) tempCategoryBudget[i].getSpendingAmount();
+                } else if (tempCategoryBudget[i].getCategory().equalsIgnoreCase("Entertainment")) {
+                    entertainmentBudget = (int) tempCategoryBudget[i].getSpendingAmount();
+                } else if (tempCategoryBudget[i].getCategory().equalsIgnoreCase("Food")) {
+                    foodBudget = (int) tempCategoryBudget[i].getSpendingAmount();
+                } else if (tempCategoryBudget[i].getCategory().equalsIgnoreCase("Bills")) {
+                    billsBudget = (int) tempCategoryBudget[i].getSpendingAmount();
+                } else if (tempCategoryBudget[i].getCategory().equalsIgnoreCase("Shopping")) {
+                    shoppingBudget = (int) tempCategoryBudget[i].getSpendingAmount();
+                } else if (tempCategoryBudget[i].getCategory().equalsIgnoreCase("Other")) {
+                    otherBudget = (int) tempCategoryBudget[i].getSpendingAmount();
+                }
             }
         }
+
+        gas.setMax(gasBudget);
+        entertainment.setMax(entertainmentBudget);
+        food.setMax(foodBudget);
+        bills.setMax(billsBudget);
+        shopping.setMax(shoppingBudget);
+        other.setMax(otherBudget);
+
 
         //Creates Textviews
         gasProgress = (TextView) findViewById(R.id.gasProgressDisplay);

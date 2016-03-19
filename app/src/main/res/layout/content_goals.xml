@@ -74,10 +74,9 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:background="#e6e3e3"
-        android:max="100"
-        android:progress="50"
 
-        android:indeterminate="false" />
+        android:indeterminate="false"
+        android:max="100" />
 
     <ProgressBar
         style="?android:attr/progressBarStyleHorizontal"
@@ -86,11 +85,11 @@
         android:id="@+id/entertainmentProgressBar"
         android:background="#e6e3e3"
 
-        android:max="100"
         android:indeterminate="false"
         android:layout_below="@+id/entertainmentTextView"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:max="100" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -177,11 +176,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/foodProgressBar"
         android:background="#e6e3e3"
-        android:max="100"
         android:indeterminate="false"
         android:layout_below="@+id/foodTextView"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:max="100" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -199,13 +198,13 @@
         android:layout_height="wrap_content"
         android:id="@+id/billsProgressBar"
         android:background="#e6e3e3"
-        android:max="100"
         android:indeterminate="false"
         android:layout_below="@+id/billsTextView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:max="100" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -223,11 +222,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/shoppingProgressBar"
         android:background="#e6e3e3"
-        android:max="100"
         android:indeterminate="false"
         android:layout_below="@+id/shoppingTextView"
         android:layout_alignRight="@+id/billsProgressBar"
-        android:layout_alignEnd="@+id/billsProgressBar" />
+        android:layout_alignEnd="@+id/billsProgressBar"
+        android:max="100" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -247,11 +246,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/otherProgressBar"
         android:background="#e6e3e3"
-        android:max="100"
         android:indeterminate="false"
         android:layout_below="@+id/otherTextView"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:max="100" />
 
     <TextView
         android:layout_width="match_parent"

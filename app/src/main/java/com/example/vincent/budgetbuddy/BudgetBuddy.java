@@ -26,27 +26,45 @@ public class BudgetBuddy extends AppCompatActivity {
 
         FileIO file = new FileIO(this);
 
-        String[] recentPurchases = {"", "", ""};
-        Purchase[] tempPurchases = file.getPurchases();
-        recentPurchases[0] = tempPurchases[tempPurchases.length - 1].getDate() + " - $" + tempPurchases[tempPurchases.length - 1].getPrice() + " at: " + tempPurchases[tempPurchases.length - 1].getLocation();
-        recentPurchases[1] = tempPurchases[tempPurchases.length - 2].getDate() + " - $" + tempPurchases[tempPurchases.length - 2].getPrice() + " at: " + tempPurchases[tempPurchases.length - 2].getLocation();
-        recentPurchases[2] = tempPurchases[tempPurchases.length - 3].getDate() + " - $" + tempPurchases[tempPurchases.length - 3].getPrice() + " at: " + tempPurchases[tempPurchases.length - 3].getLocation();
-        // combines total budget across all categories
-        int budgetsCombined = 0;
-        Goal[] tempCategoryBudget = file.getGoals();
-        for (int i = 0; i < tempCategoryBudget.length; i++) {
-            budgetsCombined += tempCategoryBudget[i].getSpendingAmount();
-        }
-        //sets total budget to textview
+
+
+        //Handles the recent purchases
         rPurchases = new TextView[3];
         rPurchases[0] = (TextView) findViewById(R.id.textView3);
         rPurchases[1] = (TextView) findViewById(R.id.textView4);
         rPurchases[2] = (TextView) findViewById(R.id.textView5);
-        rPurchases[0].setText(recentPurchases[0]);
-        rPurchases[1].setText(recentPurchases[1]);
-        rPurchases[2].setText(recentPurchases[2]);
+        if(file.checkPurchases()){
+            Purchase[] tempPurchases = file.getPurchases();
+            for(int i = 0; i < 3; i++){
+                if(i >= tempPurchases.length){
+                    rPurchases[i].setText("");
+                } else {
+                    rPurchases[i].setText(tempPurchases[tempPurchases.length - (i + 1)].getDate() + " - $" + tempPurchases[tempPurchases.length - (i + 1)].getPrice() + " at: " + tempPurchases[tempPurchases.length - (i + 1)].getLocation());
+                }
+            }
+        } else {
+            rPurchases[0].setText("");
+            rPurchases[1].setText("");
+            rPurchases[2].setText("");
+        }
+
+
+
         totalBudget = (TextView) findViewById(R.id.totalBudget);
-        totalBudget.setText("Your total budget is $" + budgetsCombined);
+        try {
+            // combines total budget across all categories
+            int budgetsCombined = 0;
+            Goal[] tempCategoryBudget = file.getGoals();
+            for (int i = 0; i < tempCategoryBudget.length; i++) {
+                budgetsCombined += tempCategoryBudget[i].getSpendingAmount();
+            }
+            //sets total budget to textview
+
+            totalBudget.setText("Your total budget is $" + budgetsCombined);
+        } catch (Exception e){
+            totalBudget.setText("You have no budget set yet...");
+        }
+
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
