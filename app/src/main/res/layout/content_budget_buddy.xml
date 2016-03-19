@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Budget: $0"
-        android:id="@+id/textView"
+        android:id="@+id/totalBudget"
         android:textStyle="bold|italic"
         android:textSize="28sp"
         android:layout_alignParentTop="true"
@@ -32,7 +32,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Recent Purchase"
         android:id="@+id/textView3"
-        android:layout_below="@+id/textView"
+        android:layout_below="@+id/totalBudget"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="28dp"
@@ -126,9 +126,9 @@
         android:layout_height="wrap_content"
         android:text="Settings"
         android:id="@+id/button13"
-        android:layout_alignParentTop="true"
         android:textSize="16sp"
-        android:layout_alignRight="@+id/button12"
-        android:layout_alignEnd="@+id/button12" />
+        android:layout_below="@+id/textView5"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

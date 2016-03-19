@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.lang.reflect.Array;
@@ -28,12 +29,12 @@ public class Goals extends AppCompatActivity {
     private ProgressBar shopping;
     private ProgressBar other;
 
-    private int gasProgressStatus;
-    private int entertainmentProgressStatus;
-    private int foodProgressStatus;
-    private int billsProgressStatus;
-    private int shoppingProgressStatus;
-    private int otherProgressStatus;
+    private TextView gasProgress;
+    private TextView entertainmentProgress;
+    private TextView foodProgress;
+    private TextView billsProgress;
+    private TextView shoppingProgress;
+    private TextView otherProgress;
 
     private int gasBudget;
     private int entertainmentBudget;
@@ -42,7 +43,12 @@ public class Goals extends AppCompatActivity {
     private int shoppingBudget;
     private int otherBudget;
 
-  //  private AppCompatActivity activity;
+    private int gasProgressStatus;
+    private int entertainmentProgressStatus;
+    private int foodProgressStatus;
+    private int billsProgressStatus;
+    private int shoppingProgressStatus;
+    private int otherProgressStatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,155 +65,76 @@ public class Goals extends AppCompatActivity {
         shopping = (ProgressBar) findViewById(R.id.shoppingProgressBar);
         other = (ProgressBar) findViewById(R.id.otherProgressBar);
 
-
-        // Hard code in progressbar budget (TEMP)
-//        gas.setProgress(20);
-//        entertainment.setProgress(99);
-//        food.setProgress(99);
-//        bills.setProgress(75);
-//        shopping.setProgress(30);
-//        other.setProgress(5);
-
         FileIO file = new FileIO(this);
-        if(file.getPurchases().length > 0) {
-            Purchase[] temp = file.getPurchases();
-            for (int i = 0; i < temp.length; i++) {
-                if (temp[i].getCategory().equalsIgnoreCase("Gas")) {
-                    gasProgressStatus += Integer.parseInt(temp[i].getPrice());
+        //Reads amount spent in each category from file
+        if (file.getPurchases().length > 0) {
+            Purchase[] tempPurchaseAmount = file.getPurchases();
+            for (int i = 0; i < tempPurchaseAmount.length; i++) {
+                if (tempPurchaseAmount[i].getCategory().equalsIgnoreCase("Gas")) {
+                    gasProgressStatus += Integer.parseInt(tempPurchaseAmount[i].getPrice());
                     gas.setProgress(gasProgressStatus);
-                } else if (temp[i].getCategory().equalsIgnoreCase("Entertainment")) {
-                    entertainmentProgressStatus += Integer.parseInt(temp[i].getPrice());
+                } else if (tempPurchaseAmount[i].getCategory().equalsIgnoreCase("Entertainment")) {
+                    entertainmentProgressStatus += Integer.parseInt(tempPurchaseAmount[i].getPrice());
                     entertainment.setProgress(entertainmentProgressStatus);
-                } else if (temp[i].getCategory().equalsIgnoreCase("Food")) {
-                    foodProgressStatus += Integer.parseInt(temp[i].getPrice());
+                } else if (tempPurchaseAmount[i].getCategory().equalsIgnoreCase("Food")) {
+                    foodProgressStatus += Integer.parseInt(tempPurchaseAmount[i].getPrice());
                     food.setProgress(foodProgressStatus);
-                } else if (temp[i].getCategory().equalsIgnoreCase("Bills")) {
-                    billsProgressStatus += Integer.parseInt(temp[i].getPrice());
+                } else if (tempPurchaseAmount[i].getCategory().equalsIgnoreCase("Bills")) {
+                    billsProgressStatus += Integer.parseInt(tempPurchaseAmount[i].getPrice());
                     bills.setProgress(billsProgressStatus);
-                } else if (temp[i].getCategory().equalsIgnoreCase("Shopping")) {
-                    shoppingProgressStatus += Integer.parseInt(temp[i].getPrice());
+                } else if (tempPurchaseAmount[i].getCategory().equalsIgnoreCase("Shopping")) {
+                    shoppingProgressStatus += Integer.parseInt(tempPurchaseAmount[i].getPrice());
                     shopping.setProgress(shoppingProgressStatus);
-                } else if (temp[i].getCategory().equalsIgnoreCase("Other")) {
-                    otherProgressStatus += Integer.parseInt(temp[i].getPrice());
+                } else if (tempPurchaseAmount[i].getCategory().equalsIgnoreCase("Other")) {
+                    otherProgressStatus += Integer.parseInt(tempPurchaseAmount[i].getPrice());
                     other.setProgress(otherProgressStatus);
                 }
             }
         }
-
-        // Brings Budget and Category from user input in SetGoal.java
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            int budget = extras.getInt("budget");
-            String category = extras.getString("category");
-            updateProgressBarBudget(category, budget);
-        }
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+        //reads budget set for each category from file
+        Goal[] tempCategoryBudget = file.getGoals();
+        for (int i = 0; i < tempCategoryBudget.length; i++) {
+            if (tempCategoryBudget[i].getCategory().equalsIgnoreCase("Gas")) {
+                gasBudget = (int) tempCategoryBudget[i].getSpendingAmount();
+                gas.setMax(gasBudget);
+            } else if (tempCategoryBudget[i].getCategory().equalsIgnoreCase("Entertainment")) {
+                entertainmentBudget = (int) tempCategoryBudget[i].getSpendingAmount();
+                entertainment.setMax(entertainmentBudget);
+            } else if (tempCategoryBudget[i].getCategory().equalsIgnoreCase("Food")) {
+                foodBudget = (int) tempCategoryBudget[i].getSpendingAmount();
+                food.setMax(foodBudget);
+            } else if (tempCategoryBudget[i].getCategory().equalsIgnoreCase("Bills")) {
+                billsBudget = (int) tempCategoryBudget[i].getSpendingAmount();
+                bills.setMax(billsBudget);
+            } else if (tempCategoryBudget[i].getCategory().equalsIgnoreCase("Shopping")) {
+                shoppingBudget = (int) tempCategoryBudget[i].getSpendingAmount();
+                shopping.setMax(shoppingBudget);
+            } else if (tempCategoryBudget[i].getCategory().equalsIgnoreCase("Other")) {
+                otherBudget = (int) tempCategoryBudget[i].getSpendingAmount();
+                other.setMax(otherBudget);
             }
-        });
-    }
-
-    /*
-        Updates the category budgets to user set inputs in SetGoal.java
-    */
-    public void updateProgressBarBudget(String pCategory, int pBudget){
-         if (pCategory.equalsIgnoreCase("Entertainment")) {
-            entertainmentBudget = pBudget;
-            entertainment.setMax(entertainmentBudget);
-        } else if (pCategory.equalsIgnoreCase("Food")) {
-            foodBudget = pBudget;
-            food.setMax(foodBudget);
-        } else if (pCategory.equalsIgnoreCase("Bills")) {
-            billsBudget = pBudget;
-            bills.setMax(billsBudget);
-        } else if (pCategory.equalsIgnoreCase("Shopping")) {
-            shoppingBudget = pBudget;
-            shopping.setMax(shoppingBudget);
-        } else if (pCategory.equalsIgnoreCase("Other")) {
-            otherBudget = pBudget;
-            other.setMax(otherBudget);
-        } else if (pCategory.equalsIgnoreCase("Gas")) {
-            gasBudget = pBudget;
-            gas.setMax(gasBudget);
         }
+
+        //Creates Textviews
+        gasProgress = (TextView) findViewById(R.id.gasProgressDisplay);
+        gasProgress.setText("You have spent $" + gasProgressStatus +
+                " of your $" + gasBudget + " budget.");
+        entertainmentProgress = (TextView) findViewById(R.id.entertainmentProgressDisplay);
+        entertainmentProgress.setText("You have spent $" + entertainmentProgressStatus +
+                " of your $" + entertainmentBudget + " budget.");
+        foodProgress = (TextView) findViewById(R.id.foodProgressDisplay);
+        foodProgress.setText("You have spent $" + foodProgressStatus +
+                " of your $" + foodBudget + " budget.");
+        billsProgress = (TextView) findViewById(R.id.billsProgressDisplay);
+        billsProgress.setText("You have spent $" + billsProgressStatus +
+                " of your $" + billsBudget + " budget.");
+        shoppingProgress = (TextView) findViewById(R.id.shoppingProgressDisplay);
+        shoppingProgress.setText("You have spent $" + shoppingProgressStatus +
+                " of your $" + shoppingBudget + " budget.");
+        otherProgress = (TextView) findViewById(R.id.otherProgressDisplay);
+        otherProgress.setText("You have spent $" + otherProgressStatus +
+                " of your $" + otherBudget + " budget.");
     }
-
-
-
-
-//    /*
-//     * @param pPurchase Takes recent purchase for gas and adds it to total spent in category.
-//     * @return returns updated spending on gas.
-//    **/
-//    public int updateGasProgress (int pPurchase){
-//        gasProgressStatus += setGoal.getBudget();
-//        gas.setProgress(gasProgressStatus);
-//        return gasProgressStatus;
-//    }
-//
-//    /**
-//     * @param pPurchase Takes recent purchase for entertainment and adds it to total spent in category.
-//     * @return returns updated spending on entertainment.
-//     **/
-//    public int updateEntertainmentProgress (int pPurchase){
-//        entertainmentProgressStatus += pPurchase;
-//        entertainment.setProgress(entertainmentProgressStatus);
-//        return entertainmentProgressStatus;
-//    }
-//
-//    /**
-//     * @param pPurchase Takes recent purchase for bills and adds it to total spent in category.
-//     * @return updated spending on bills.
-//     **/
-//    public int updateBillsProgress (int pPurchase){
-//        billsProgressStatus += pPurchase;
-//        bills.setProgress(billsProgressStatus);
-//        return billsProgressStatus;
-//    }
-//
-//    /**
-//     * @param pPurchase Takes recent purchase for food and adds it to total spent in category.
-//     * @return updated spending on bills.
-//     **/
-//    public int updateFoodProgress (int pPurchase){
-//        foodProgressStatus += pPurchase;
-//        food.setProgress(foodProgressStatus);
-//        return foodProgressStatus;
-//    }
-//
-//    /**
-//     * @param pPurchase Takes recent purchase for shopping and adds it to total spent in category.
-//     * @return returns updated spending on shopping.
-//     **/
-//    public int updateShoppingProgress (int pPurchase){
-//        shoppingProgressStatus += pPurchase;
-//        shopping.setProgress(shoppingProgressStatus);
-//        return shoppingProgressStatus;
-//    }
-//
-//    /**
-//     * @param pPurchase Takes recent purchase for other and adds it to total spent in category.
-//     * @return returns updated spending on other.
-//     **/
-//    public int updateOtherProgress (int pPurchase){
-//        otherProgressStatus += pPurchase;
-//        other.setProgress(otherProgressStatus);
-//        return otherProgressStatus;
-//    }
-//
-//    /**
-//     * @param pAmount  Will convert money spent in a category to a percentage of 100%,
-//     * where 100% is the budget that was set. (purchase / budget) x 100
-//     *
-//     **/
-//    public void convertToPercentage(int pAmount) {
-//
-//    }
 
     public void selectNewGoal(View v){
         Button button = (Button)v;

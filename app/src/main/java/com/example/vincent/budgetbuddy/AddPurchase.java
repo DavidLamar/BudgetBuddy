@@ -1,14 +1,11 @@
 package com.example.vincent.budgetbuddy;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -16,14 +13,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-
-import java.io.BufferedReader;
-import java.io.Console;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
 
 public class AddPurchase extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -36,7 +25,7 @@ public class AddPurchase extends AppCompatActivity implements AdapterView.OnItem
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        spinner = (Spinner) findViewById(R.id.spinner1);
+        spinner = (Spinner) findViewById(R.id.purchaseType);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(AddPurchase.this,
                 android.R.layout.simple_spinner_item, paths);
 
@@ -63,8 +52,13 @@ public class AddPurchase extends AppCompatActivity implements AdapterView.OnItem
         EditText money = (EditText) findViewById(R.id.moneyField);
         EditText place = (EditText) findViewById(R.id.placeField);
         EditText date = (EditText) findViewById(R.id.endDateField);
+        Spinner category = (Spinner) findViewById(R.id.categorySpinner);
+        Spinner methodOfPurchase = (Spinner) findViewById(R.id.purchaseType);
 
-        Purchase newPurchase = new Purchase(money.getText().toString(), date.getText().toString(), place.getText().toString(), spinner.getSelectedItem().toString(), "Category");
+        String textOfCategory = category.getSelectedItem().toString();
+        String textOfMethodPurchase = methodOfPurchase.getSelectedItem().toString();
+
+        Purchase newPurchase = new Purchase(money.getText().toString(), date.getText().toString(), place.getText().toString(), textOfMethodPurchase, textOfCategory);
         savePurchase(newPurchase);
         /*
         Toast.makeText(getApplicationContext(), "Purchase amount: $" + amount.getText().toString() + "\n" + "Place purchased: "

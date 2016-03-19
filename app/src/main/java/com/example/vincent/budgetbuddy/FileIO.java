@@ -78,7 +78,8 @@ public class FileIO {
     public void addPurchase(Purchase p){
         try {
             File file = new File(activity.getFilesDir(), PURCHASE_OUTPUT);
-            String saveText = p.getPrice() + " " + p.getMethod() + " " + p.getDate() + " " + p.getLocation() + " " + p.getCategory() + "-";
+
+            String saveText = p.getPrice() + " " + p.getDate() + " " + p.getLocation() + " " + p.getMethod() + " " + p.getCategory() + "-";
             ArrayList<String> lines = new ArrayList<String>();
             FileOutputStream fos;
             FileInputStream fis;
@@ -131,7 +132,8 @@ public class FileIO {
     }
 
     public void deletePurchase(){
-
+        File file = new File(activity.getFilesDir(), PURCHASE_OUTPUT);
+        file.delete();
     }
 
     /**
@@ -193,44 +195,57 @@ public class FileIO {
      * @param c The category that we are saving to the data file
      */
     public void addCategory(Category c){
-        File file;
-        FileOutputStream fos;
-
-        ArrayList<String> categories = new ArrayList<String>();
-        Category[] categories_raw = getCategories();
-        /**
-         * For this for loop:
-         * If we change the Category class, we will need to update the "current_category" part of the
-         * for loop to encompass all of the attributes.
-         */
-        for(int i = 0; i < categories_raw.length; i++){
-            String current_category = "";
-            current_category += categories_raw[i].getName() + "-";
-
-            categories.add(current_category);
-        }
-        //Adds the new category to the arraylist
-        categories.add(c.getName() + "-");
-
-        //The following code handles all of the file writing:
         try {
-            file = new File(activity.getFilesDir(), CATEGORY_OUTPUT);
-            fos = new FileOutputStream(file);
+            File file = new File(activity.getFilesDir(), CATEGORY_OUTPUT);
 
-            for(int i = 0; i < categories.size(); i++){
-                fos.write(categories.get(i).getBytes());
+            String saveText = c.getName() + "-";
+            ArrayList<String> lines = new ArrayList<String>();
+            FileOutputStream fos;
+            FileInputStream fis;
+
+            try {
+                //We need to load in the text file first, so that it doesn't all get deleted
+                fis = new FileInputStream(file);
+                InputStreamReader isr = new InputStreamReader(fis);
+                BufferedReader br = new BufferedReader(isr);
+
+                lines = new ArrayList<String>();
+                String[] s = br.readLine().split("-");
+                Log.i("File ", "____________________Loading text file...__________________________");
+                for(int i = 0; i < s.length; i++){
+                    lines.add(s[i] + "-");
+                    Log.i("File ", "Loading: " + s[i]);
+                }
+                fis.close();
+            } catch (Exception e) {
+                Log.i("File", "No file");
             }
 
-            fos.close();
-        } catch(Exception e){
+            lines.add(saveText);
+
+            try {
+                //Then write all of our stuff back to the file. This will get a lot slower
+                //as more files are added. But that will only be after thousands of entries.
+                fos = new FileOutputStream(file);
+                for(int i = 0; i < lines.size(); i++){
+                    fos.write(lines.get(i).getBytes());
+                }
+                Log.i("File", "Saving: " + saveText);
+                fos.close();
+
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+        } catch (Exception e){
             e.printStackTrace();
         }
     }
 
 
 
-    public void deleteCategory(int index){
-
+    public void deleteCategory(){
+        File file = new File(activity.getFilesDir(), CATEGORY_OUTPUT);
+        file.delete();
     }
 
     public void deleteCategory(String name){
@@ -296,43 +311,54 @@ public class FileIO {
      * @param g The goal we are adding to the goals data file
      */
     public void addGoal(Goal g){
-
-        File file;
-        FileOutputStream fos;
-
-        ArrayList<String> goals = new ArrayList<String>();
-        Goal[] goals_raw = getGoals();
-        /**
-         * For this for loop:
-         * If we change the Goal class, we will need to update the "current_goal" part of the
-         * for loop to encompass all of the attributes.
-         */
-        for(int i = 0; i < goals_raw.length; i++){
-            String current_goal = "";
-            current_goal += goals_raw[i].getCategory() + " " + goals_raw[i].getSpendingAmount() + "-";
-
-            goals.add(current_goal);
-        }
-        //Adds the new goal to the arraylist
-        goals.add(g.getCategory() + " " + g.getSpendingAmount() + "-");
-
-        //The following code handles all of the file writing:
         try {
-            file = new File(activity.getFilesDir(), GOAL_OUTPUT);
-            fos = new FileOutputStream(file);
+            File file = new File(activity.getFilesDir(), GOAL_OUTPUT);
+            String saveText = g.getCategory() + " " + g.getSpendingAmount() + "-";
+            ArrayList<String> lines = new ArrayList<String>();
+            FileOutputStream fos;
+            FileInputStream fis;
 
-            for(int i = 0; i < goals.size(); i++){
-                fos.write(goals.get(i).getBytes());
+            try {
+                //We need to load in the text file first, so that it doesn't all get deleted
+                fis = new FileInputStream(file);
+                InputStreamReader isr = new InputStreamReader(fis);
+                BufferedReader br = new BufferedReader(isr);
+
+                lines = new ArrayList<String>();
+                String[] s = br.readLine().split("-");
+                Log.i("File ", "____________________Loading text file...__________________________");
+                for(int i = 0; i < s.length; i++){
+                    lines.add(s[i] + "-");
+                    Log.i("File ", "Loading: " + s[i]);
+                }
+                fis.close();
+            } catch (Exception e) {
+                Log.i("File", "No file");
             }
 
-            fos.close();
-        } catch(Exception e){
+            lines.add(saveText);
+
+            try {
+                //Then write all of our stuff back to the file. This will get a lot slower
+                //as more files are added. But that will only be after thousands of entries.
+                fos = new FileOutputStream(file);
+                for(int i = 0; i < lines.size(); i++){
+                    fos.write(lines.get(i).getBytes());
+                }
+                Log.i("File", "Saving: " + saveText);
+                fos.close();
+
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+        } catch (Exception e){
             e.printStackTrace();
         }
     }
 
-    public void deleteGoal(int index){
-
+    public void deleteGoal(){
+        File file = new File(activity.getFilesDir(), GOAL_OUTPUT);
+        file.delete();
     }
 
     public void deleteGoal(String name){

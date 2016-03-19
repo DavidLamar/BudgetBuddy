@@ -23,12 +23,10 @@ import android.widget.Toast;
  */
 
 public class SetGoal extends AppCompatActivity {
-    //  public Goals goals = new Goals();
-    //  public ProgressBar gas = (ProgressBar) (findViewById(R.id.gasProgressBar));;
-//    String [] Goals_Spending_Categories;
     public int budget;
     public String category;
     public Goals goals = new Goals();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +55,7 @@ public class SetGoal extends AppCompatActivity {
                 + place.getText().toString(), Toast.LENGTH_LONG).show();
         */
 
-        Button button = (Button) v;
+  //      Button button = (Button) v;
         startActivity(new Intent(getApplicationContext(), Goals.class));
 
         //Set budget to user input
@@ -78,43 +76,6 @@ public class SetGoal extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Goal added", Toast.LENGTH_LONG).show();
 
     }
-
-//    public void doAfterClick() {
-//        goals.updateProgressBarBudget();
-//    }
-
-//    class categorySpinnerClass implements AdapterView.OnItemSelectedListener {
-//        @Override
-//        public void onItemSelected(AdapterView<?> spinner, View view, int position, long id) {
-//            TextView text = (TextView) view;
-//  //          Goals category = new Goals();
-//            if (position == 0) {
-//                //Gas
-//                //  category.updateGasProgress(Integer.parseInt(money.getText().toString()));
-//            } else if (position == 1) {
-//                //Entertainment
-//                //  category.updateEntertainmentProgress(Integer.parseInt(money.getText().toString()));
-//            } else if (position == 2) {
-//                //Food
-//                //  category.updateFoodProgress(Integer.parseInt(money.getText().toString()));
-//            } else if (position == 3) {
-//                //Bills
-//                //   category.updateBillsProgress(Integer.parseInt(money.getText().toString()));
-//            } else if (position == 4) {
-//                //Shopping
-//                //   category.updateShoppingProgress(Integer.parseInt(money.getText().toString()));
-//            } else {
-//                //Other
-//                //   category.updateOtherProgress(Integer.parseInt(money.getText().toString()));
-//            }
-//            Toast.makeText(view.getContext(), "you selected " + text.getText(), Toast.LENGTH_SHORT).show();
-      //  }
-
-//        @Override
-//        public void onNothingSelected(AdapterView<?> parent) {
-//
-//        }
-
 
         public void setBudget(int pBudget) {
             budget = pBudget;
