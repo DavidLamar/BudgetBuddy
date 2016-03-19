@@ -30,6 +30,7 @@ public class BudgetBuddy extends AppCompatActivity {
             }
         });
 
+        TEST();
 
     }
 
@@ -81,6 +82,7 @@ public class BudgetBuddy extends AppCompatActivity {
         FileIO fileIOTest = new FileIO(this);
         fileIOTest.deletePurchase();
         fileIOTest.deleteGoal();
+        fileIOTest.deleteCategory();
         Purchase[] purchases = new Purchase[6];
         purchases[0] = new Purchase("55", "10/10/10", "Somewhere", "Cash", "Food");
         purchases[1] = new Purchase("12", "10/10/11", "Somewhere", "Credit", "Gas");
@@ -128,8 +130,20 @@ public class BudgetBuddy extends AppCompatActivity {
 
         Category[] categories = new Category[2];
         categories[0] = new Category("Something");
-        categories[0] = new Category("SomethingElse");
+        categories[1] = new Category("SomethingElse");
+        for(int i = 0; i < categories.length; i++){
+            fileIOTest.addCategory(categories[i]);
+        }
 
+        Category[] test3 = fileIOTest.getCategories();
+        for(int i = 0; i < test3.length; i++){
+            testbool = (testbool && (test3[i].getName().equals(categories[i].getName())));
+            Log.i("TEST ", test3[i].getName() + " =? " + categories[i].getName() + " : " + testbool);
+        }
+
+
+        Log.i("TEST ", "Categories done; All came back: " + testbool);
+        Log.i("TEST ", "");
 
 
     }
