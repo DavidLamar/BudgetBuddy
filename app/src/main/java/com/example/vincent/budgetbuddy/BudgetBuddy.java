@@ -86,7 +86,7 @@ public class BudgetBuddy extends AppCompatActivity {
 
     public void selectHomeButton(View v){
         Button button = (Button)v;
-        startActivity(new Intent(getApplicationContext(), Spending.class));
+        startActivity(new Intent(getApplicationContext(), BudgetBuddy.class));
     }
 
 
