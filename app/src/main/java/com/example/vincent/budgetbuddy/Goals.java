@@ -67,8 +67,8 @@ public class Goals extends AppCompatActivity {
 
         FileIO file = new FileIO(this);
         //Reads amount spent in each category from file
-        if (file.getPurchases().length > 0) {
-            Purchase[] tempPurchaseAmount = file.getPurchases();
+        Purchase[] tempPurchaseAmount = file.getPurchases();
+        if (tempPurchaseAmount != null) {
             for (int i = 0; i < tempPurchaseAmount.length; i++) {
                 if (tempPurchaseAmount[i].getCategory().equalsIgnoreCase("Gas")) {
                     gasProgressStatus += Integer.parseInt(tempPurchaseAmount[i].getPrice());
