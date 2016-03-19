@@ -1,5 +1,6 @@
 package com.example.vincent.budgetbuddy;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -7,6 +8,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -141,4 +144,43 @@ public class Spending extends AppCompatActivity {
         xAxis.add("JUN");
         return xAxis;
     }
+
+    public void selectPurchase(View v){
+        Button button = (Button)v;
+        startActivity(new Intent(getApplicationContext(), AddPurchase.class));
+    }
+
+    public void selectGoals(View v){
+        Button button = (Button)v;
+        startActivity(new Intent(getApplicationContext(), Goals.class));
+    }
+
+    public void selectSpending(View v){
+        Button button = (Button)v;
+        startActivity(new Intent(getApplicationContext(), Spending.class));
+    }
+
+    public void selectHome(View v){
+        Button button = (Button)v;
+        startActivity(new Intent(getApplicationContext(), BudgetBuddy.class));
+    }
+
+    public void selectPieChart(View v){
+        boolean checked = ((RadioButton) v).isChecked();
+        switch (v.getId())
+        {
+            case R.id.graph2:
+                if(checked){
+                    startActivity(new Intent(getApplicationContext(), Spending.class));
+                }
+                break;
+
+            case R.id.chart2:
+                if(checked){
+                    startActivity(new Intent(getApplicationContext(), Spending2.class));
+                }
+                break;
+        }
+    }
+
 }

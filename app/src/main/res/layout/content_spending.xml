@@ -11,8 +11,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.vincent.budgetbuddy.Spending"
-    tools:showIn="@layout/activity_spending"
-    android:background="#eaebeb">
+    android:background="#ffffff">
 
     <TextView
         android:layout_width="wrap_content"
@@ -20,7 +19,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Spending Distribution"
         android:id="@+id/textView11"
-        android:textSize="25sp"
+        android:textSize="23sp"
         android:textStyle="bold|italic"
         android:textIsSelectable="false"
         android:layout_alignParentTop="true"
@@ -30,7 +29,104 @@
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/chart"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/textView11" />
+        android:layout_height="345sp"
+        android:layout_below="@+id/imageView4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2sp"
+        android:text="Home"
+        android:id="@+id/button21"
+        android:width="80sp"
+        android:height="60sp"
+        android:background="#efeeee"
+        android:onClick="selectHome"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2sp"
+        android:text="Goals"
+        android:id="@+id/button22"
+        android:width="80sp"
+        android:height="60sp"
+        android:background="#efeeee"
+        android:onClick="selectGoals"
+        android:layout_alignTop="@+id/button21"
+        android:layout_toRightOf="@+id/button21"
+        android:layout_toEndOf="@+id/button21" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2sp"
+        android:text="Spending"
+        android:id="@+id/button23"
+        android:width="80sp"
+        android:textSize="12sp"
+        android:height="60sp"
+        android:background="#efeeee"
+        android:onClick="selectSpending"
+        android:layout_alignTop="@+id/button22"
+        android:layout_toRightOf="@+id/button22"
+        android:layout_toEndOf="@+id/button22" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Purchase"
+        android:id="@+id/button24"
+        android:width="80sp"
+        android:textSize="12sp"
+        android:height="60sp"
+        android:background="#efeeee"
+        android:onClick="selectPurchase"
+        android:layout_alignTop="@+id/button23"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:layout_width="100sp"
+        android:layout_height="40sp"
+        android:id="@+id/imageView4"
+        android:src="@drawable/logo"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pie Chart"
+        android:id="@+id/chart2"
+        android:checked="false"
+        android:singleLine="false"
+        android:onClick="selectPieChart"
+        android:textSize="16sp"
+        android:layout_above="@+id/button21"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bar Graph"
+        android:id="@+id/graph2"
+        android:checked="false"
+        android:onClick="selectPieChart"
+        android:textSize="16sp"
+        android:layout_above="@+id/button22"
+        android:layout_toRightOf="@+id/chart2"
+        android:layout_toEndOf="@+id/chart2" />
 
 </RelativeLayout>
