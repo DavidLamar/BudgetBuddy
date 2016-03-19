@@ -33,15 +33,6 @@ public class AddPurchase extends AppCompatActivity implements AdapterView.OnItem
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         //REMOVE THIS LATER!!!@ *****************************************************************************************************
         //deletePurchases();
 
