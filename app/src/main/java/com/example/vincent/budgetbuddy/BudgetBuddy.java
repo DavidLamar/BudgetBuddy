@@ -30,7 +30,7 @@ public class BudgetBuddy extends AppCompatActivity {
             }
         });
 
-        TEST();
+
     }
 
     @Override
@@ -104,6 +104,7 @@ public class BudgetBuddy extends AppCompatActivity {
         }
 
         Log.i("TEST ", "Purchases done; All came back: " + testbool);
+        Log.i("TEST ", "");
 
         Goal[] goals = new Goal[4];
         goals[0] = new Goal("Gas", 500);
@@ -118,10 +119,18 @@ public class BudgetBuddy extends AppCompatActivity {
         for(int i = 0; i < test2.length; i++){
             testbool = (testbool && test2[i].getCategory().equals(goals[i].getCategory()));
             testbool = (testbool && (goals[i].getSpendingAmount() == test2[i].getSpendingAmount()));
-            Log.i("TEST ", goals[i].getCategory() + " ==? " + test2[i].getCategory() + " : " + testbool);
-            Log.i("TEST ", goals[i].getSpendingAmount() + " ==? " + test2[i].getSpendingAmount() + " : " + testbool);
+            Log.i("TEST ", goals[i].getCategory() + " =? " + test2[i].getCategory() + " : " + testbool);
+            Log.i("TEST ", goals[i].getSpendingAmount() + " =? " + test2[i].getSpendingAmount() + " : " + testbool);
         }
         Log.i("TEST ", "Goals done; All came back: " + testbool);
+        Log.i("TEST ", "");
+
+
+        Category[] categories = new Category[2];
+        categories[0] = new Category("Something");
+        categories[0] = new Category("SomethingElse");
+
+
 
     }
 
