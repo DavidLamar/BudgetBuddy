@@ -1,316 +1,319 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true">
-<RelativeLayout
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.vincent.budgetbuddy.Goals"
-    android:background="#eaebeb">
-
-    <TextView
+    android:layout_height="match_parent" >
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Goals"
-        android:id="@+id/textView10"
-        android:textSize="28sp"
-        android:textStyle="bold|italic"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+        <RelativeLayout
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:context="com.example.vincent.budgetbuddy.Goals"
+            android:background="#eaebeb"
+            android:nestedScrollingEnabled="false">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Gas"
-        android:id="@+id/gasTextView"
-        android:layout_marginTop="25dp"
-        android:layout_below="@+id/textView10"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Goals"
+                android:id="@+id/textView10"
+                android:textSize="28sp"
+                android:textStyle="bold|italic"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Entertainment"
-        android:id="@+id/entertainmentTextView"
-        android:layout_below="@+id/gasProgressDisplay"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Gas"
+                android:id="@+id/gasTextView"
+                android:layout_marginTop="25dp"
+                android:layout_below="@+id/textView10"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Goal"
-        android:id="@+id/button5"
-        android:textStyle="normal"
-        android:textSize="18sp"
-        android:textColor="#ffffff"
-        android:width="120sp"
-        android:background="#4dd35a"
-        android:onClick="selectNewGoal"
-        android:layout_above="@+id/button"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Entertainment"
+                android:id="@+id/entertainmentTextView"
+                android:layout_below="@+id/gasProgressDisplay"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
 
-    <ProgressBar
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/gasProgressBar"
-        android:layout_below="@+id/gasTextView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="#e6e3e3"
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add Goal"
+                android:id="@+id/button5"
+                android:textStyle="normal"
+                android:textSize="18sp"
+                android:textColor="#ffffff"
+                android:width="120sp"
+                android:background="#4dd35a"
+                android:onClick="selectNewGoal"
+                android:layout_below="@+id/otherProgressDisplay"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
 
-        android:indeterminate="false"
-        android:max="100" />
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/gasProgressBar"
+                android:layout_below="@+id/gasTextView"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:background="#e6e3e3"
+                android:indeterminate="false"
+                />
 
-    <ProgressBar
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/entertainmentProgressBar"
-        android:background="#e6e3e3"
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/entertainmentProgressBar"
+                android:background="#e6e3e3"
+                android:indeterminate="false"
+                android:layout_below="@+id/entertainmentTextView"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                />
 
-        android:indeterminate="false"
-        android:layout_below="@+id/entertainmentTextView"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:max="100" />
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:id="@+id/button"
+                android:width="80sp"
+                android:height="60sp"
+                android:background="#ffffff"
+                android:onClick="selectHome"
+                android:layout_below="@+id/button5"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Home"
-        android:id="@+id/button"
-        android:width="80sp"
-        android:height="60sp"
-        android:background="#ffffff"
-        android:onClick="selectHome"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Goals"
+                android:id="@+id/button14"
+                android:width="80sp"
+                android:height="60sp"
+                android:background="#ffffff"
+                android:onClick="selectGoals"
+                android:layout_below="@+id/button"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Goals"
-        android:id="@+id/button14"
-        android:width="80sp"
-        android:height="60sp"
-        android:background="#ffffff"
-        android:onClick="selectGoals"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Spending"
+                android:id="@+id/button15"
+                android:width="80sp"
+                android:textSize="12sp"
+                android:height="60sp"
+                android:background="#ffffff"
+                android:onClick="selectSpending"
+                android:layout_below="@+id/button5"
+                android:layout_toRightOf="@+id/entertainmentTextView"
+                android:layout_toEndOf="@+id/entertainmentTextView" />
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Spending"
-        android:id="@+id/button15"
-        android:width="80sp"
-        android:textSize="12sp"
-        android:height="60sp"
-        android:background="#ffffff"
-        android:onClick="selectSpending"
-        android:layout_below="@+id/button5"
-        android:layout_toRightOf="@+id/button"
-        android:layout_toEndOf="@+id/button" />
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add Purchase"
+                android:id="@+id/button16"
+                android:width="80sp"
+                android:textSize="12sp"
+                android:height="60sp"
+                android:background="#ffffff"
+                android:onClick="selectPurchase"
+                android:layout_alignTop="@+id/button15"
+                android:layout_toRightOf="@+id/button15"
+                android:layout_toEndOf="@+id/button15" />
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Purchase"
-        android:id="@+id/button16"
-        android:width="80sp"
-        android:textSize="12sp"
-        android:height="60sp"
-        android:background="#ffffff"
-        android:onClick="selectPurchase"
-        android:layout_alignTop="@+id/button14"
-        android:layout_toLeftOf="@+id/button14"
-        android:layout_toStartOf="@+id/button14" />
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/goalDates"
+                android:spinnerMode="dropdown"
+                android:entries="@array/Spending_Categories"
 
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/goalDates"
-        android:spinnerMode="dropdown"
-        android:entries="@array/Spending_Categories"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/shoppingTextView"
+                android:layout_toEndOf="@+id/shoppingTextView" />
 
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/shoppingTextView"
-        android:layout_toEndOf="@+id/shoppingTextView" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Food"
+                android:id="@+id/foodTextView"
+                android:layout_below="@+id/entertainmentProgressDisplay"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Food"
-        android:id="@+id/foodTextView"
-        android:layout_below="@+id/entertainmentProgressDisplay"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/foodProgressBar"
+                android:background="#e6e3e3"
+                android:indeterminate="false"
+                android:layout_below="@+id/foodTextView"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                />
 
-    <ProgressBar
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/foodProgressBar"
-        android:background="#e6e3e3"
-        android:indeterminate="false"
-        android:layout_below="@+id/foodTextView"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:max="100" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Bills"
+                android:id="@+id/billsTextView"
+                android:layout_below="@+id/foodProgressDisplay"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Bills"
-        android:id="@+id/billsTextView"
-        android:layout_below="@+id/foodProgressDisplay"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/billsProgressBar"
+                android:background="#e6e3e3"
+                android:indeterminate="false"
+                android:layout_below="@+id/billsTextView"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                />
 
-    <ProgressBar
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/billsProgressBar"
-        android:background="#e6e3e3"
-        android:indeterminate="false"
-        android:layout_below="@+id/billsTextView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:max="100" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Shopping"
+                android:id="@+id/shoppingTextView"
+                android:layout_below="@+id/billsProgressDisplay"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Shopping"
-        android:id="@+id/shoppingTextView"
-        android:layout_below="@+id/billsProgressDisplay"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/shoppingProgressBar"
+                android:background="#e6e3e3"
+                android:indeterminate="false"
+                android:layout_below="@+id/shoppingTextView"
+                android:layout_alignRight="@+id/billsProgressBar"
+                android:layout_alignEnd="@+id/billsProgressBar"
+                />
 
-    <ProgressBar
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/shoppingProgressBar"
-        android:background="#e6e3e3"
-        android:indeterminate="false"
-        android:layout_below="@+id/shoppingTextView"
-        android:layout_alignRight="@+id/billsProgressBar"
-        android:layout_alignEnd="@+id/billsProgressBar"
-        android:max="100" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Other"
+                android:id="@+id/otherTextView"
+                android:layout_below="@+id/shoppingProgressDisplay"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignRight="@+id/button"
+                android:layout_alignEnd="@+id/button" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Other"
-        android:id="@+id/otherTextView"
-        android:layout_below="@+id/shoppingProgressDisplay"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/button"
-        android:layout_alignEnd="@+id/button" />
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/otherProgressBar"
+                android:background="#e6e3e3"
+                android:indeterminate="false"
+                android:layout_below="@+id/otherTextView"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                />
 
-    <ProgressBar
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/otherProgressBar"
-        android:background="#e6e3e3"
-        android:indeterminate="false"
-        android:layout_below="@+id/otherTextView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:max="100" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Small Text"
+                android:id="@+id/gasProgressDisplay"
+                android:layout_below="@+id/gasProgressBar"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/gasProgressDisplay"
-        android:layout_below="@+id/gasProgressBar"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Small Text"
+                android:id="@+id/entertainmentProgressDisplay"
+                android:layout_below="@+id/entertainmentProgressBar"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/entertainmentProgressDisplay"
-        android:layout_below="@+id/entertainmentProgressBar"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Small Text"
+                android:id="@+id/foodProgressDisplay"
+                android:layout_below="@+id/foodProgressBar"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/foodProgressDisplay"
-        android:layout_below="@+id/foodProgressBar"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Small Text"
+                android:id="@+id/shoppingProgressDisplay"
+                android:layout_below="@+id/shoppingProgressBar"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/shoppingProgressDisplay"
-        android:layout_below="@+id/shoppingProgressBar"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Small Text"
+                android:id="@+id/otherProgressDisplay"
+                android:layout_below="@+id/otherProgressBar"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/otherProgressDisplay"
-        android:layout_below="@+id/otherProgressBar"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Small Text"
+                android:id="@+id/billsProgressDisplay"
+                android:layout_below="@+id/billsProgressBar"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/billsProgressDisplay"
-        android:layout_below="@+id/billsProgressBar"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-</RelativeLayout>
-</ScrollView>
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>

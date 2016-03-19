@@ -72,22 +72,22 @@ public class Goals extends AppCompatActivity {
             for (int i = 0; i < tempPurchaseAmount.length; i++) {
                 if (tempPurchaseAmount[i].getCategory().equalsIgnoreCase("Gas")) {
                     gasProgressStatus += Integer.parseInt(tempPurchaseAmount[i].getPrice());
-                    gas.setProgress(gasProgressStatus);
+
                 } else if (tempPurchaseAmount[i].getCategory().equalsIgnoreCase("Entertainment")) {
                     entertainmentProgressStatus += Integer.parseInt(tempPurchaseAmount[i].getPrice());
-                    entertainment.setProgress(entertainmentProgressStatus);
+
                 } else if (tempPurchaseAmount[i].getCategory().equalsIgnoreCase("Food")) {
                     foodProgressStatus += Integer.parseInt(tempPurchaseAmount[i].getPrice());
-                    food.setProgress(foodProgressStatus);
+
                 } else if (tempPurchaseAmount[i].getCategory().equalsIgnoreCase("Bills")) {
                     billsProgressStatus += Integer.parseInt(tempPurchaseAmount[i].getPrice());
-                    bills.setProgress(billsProgressStatus);
+
                 } else if (tempPurchaseAmount[i].getCategory().equalsIgnoreCase("Shopping")) {
                     shoppingProgressStatus += Integer.parseInt(tempPurchaseAmount[i].getPrice());
-                    shopping.setProgress(shoppingProgressStatus);
+
                 } else if (tempPurchaseAmount[i].getCategory().equalsIgnoreCase("Other")) {
                     otherProgressStatus += Integer.parseInt(tempPurchaseAmount[i].getPrice());
-                    other.setProgress(otherProgressStatus);
+
                 }
             }
         }
@@ -117,6 +117,13 @@ public class Goals extends AppCompatActivity {
         bills.setMax(billsBudget);
         shopping.setMax(shoppingBudget);
         other.setMax(otherBudget);
+        gas.setProgress(gasProgressStatus);
+        entertainment.setProgress(entertainmentProgressStatus);
+        food.setProgress(foodProgressStatus);
+        bills.setProgress(billsProgressStatus);
+        shopping.setProgress(shoppingProgressStatus);
+        other.setProgress(otherProgressStatus);
+
 
 
         //Creates Textviews
