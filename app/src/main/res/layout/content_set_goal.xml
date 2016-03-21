@@ -10,11 +10,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.vincent.budgetbuddy.SetGoal"
-    android:background="#eaebeb">
+    android:background="#ffffff"
+    android:gravity="center|bottom">
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="110sp"
+        android:layout_height="48sp"
         android:layout_margin="15sp"
         android:text="Submit"
         android:id="@+id/submitBudget"
@@ -23,7 +24,6 @@
         android:onClick="goalAdded"
         android:background="#4dd35a"
         android:textColor="#ffffff"
-        android:width="120sp"
         android:allowUndo="false"
         android:layout_above="@+id/button18"
         android:layout_centerHorizontal="true"
@@ -33,127 +33,157 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Home"
+        android:layout_marginStart="4sp"
         android:id="@+id/button17"
         android:width="80sp"
         android:height="60sp"
-        android:background="#ffffff"
+        android:background="@drawable/home3"
         android:onClick="selectHome"
+        android:text="Home"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2sp"
-        android:text="Goals"
-        android:id="@+id/button18"
-        android:width="80sp"
-        android:height="60sp"
-        android:background="#ffffff"
-        android:onClick="selectGoals"
-        android:layout_alignBottom="@+id/button17"
-        android:layout_toRightOf="@+id/button17"
-        android:layout_toEndOf="@+id/button17" />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2sp"
-        android:text="Spending"
-        android:id="@+id/button19"
-        android:width="80sp"
-        android:textSize="12sp"
-        android:height="60sp"
-        android:background="#ffffff"
-        android:onClick="selectSpending"
-        android:layout_alignBottom="@+id/button18"
-        android:layout_toRightOf="@+id/button18"
-        android:layout_toEndOf="@+id/button18" />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2sp"
-        android:text="Add Purchase"
-        android:id="@+id/button20"
-        android:width="80sp"
-        android:textSize="12sp"
-        android:height="60sp"
-        android:background="#ffffff"
-        android:onClick="selectPurchase"
-        android:layout_alignBottom="@+id/button19"
-        android:layout_toRightOf="@+id/button19"
-        android:layout_toEndOf="@+id/button19" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Category"
-        android:id="@+id/textView2"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textSize="24sp" />
+        android:gravity="center|bottom"
+        android:textColor="#3078b8" />
+        <!--
+        android:background="#efeeee"
+        -->
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Budget Goal:"
-        android:id="@+id/textView14"
-        android:nestedScrollingEnabled="false"
-        android:textSize="24sp"
-        android:layout_below="@+id/spinner"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/amountField"
-        android:layout_below="@+id/textView14"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+<Button
+    style="?android:attr/buttonStyleSmall"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="4sp"
+    android:text="Goals"
+    android:id="@+id/button18"
+    android:width="80sp"
+    android:height="60sp"
+    android:background="@drawable/goals3"
+    android:onClick="selectGoals"
+    android:layout_alignBottom="@+id/button17"
+    android:layout_toRightOf="@+id/button17"
+    android:layout_toEndOf="@+id/button17"
+    android:textColor="#3078b8"
+    android:nestedScrollingEnabled="false"
+    android:gravity="center|bottom" />
+    <!--
+    android:background="#efeeee"
+    -->
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Goal Date"
-        android:id="@+id/textView15"
-        android:layout_below="@+id/amountField"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textIsSelectable="false"
-        android:textSize="24sp" />
+<Button
+    style="?android:attr/buttonStyleSmall"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="4sp"
+    android:text="Spending"
+    android:id="@+id/button19"
+    android:width="80sp"
+    android:height="60sp"
+    android:background="@drawable/money2"
+    android:onClick="selectSpending"
+    android:layout_alignBottom="@+id/button18"
+    android:layout_toRightOf="@+id/button18"
+    android:layout_toEndOf="@+id/button18"
+    android:gravity="center|bottom"
+    android:layout_alignTop="@+id/button18"
+    android:textColor="#3078b8" />
+    <!--
+    android:background="#efeeee"
+    -->
 
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:spinnerMode="dropdown"
-        android:entries="@array/Goals_Spending_Categories"
-        android:layout_below="@+id/textView2"
-        android:layout_alignRight="@+id/amountField"
-        android:layout_alignEnd="@+id/amountField" />
+<Button
+    style="?android:attr/buttonStyleSmall"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="4sp"
+    android:text="Add "
+    android:id="@+id/button20"
+    android:width="80sp"
+    android:height="60sp"
+    android:background="@drawable/add2"
+    android:onClick="selectPurchase"
+    android:layout_alignBottom="@+id/button19"
+    android:layout_toRightOf="@+id/button19"
+    android:layout_toEndOf="@+id/button19"
+    android:gravity="center|bottom"
+    android:textColor="#3078b8" />
+    <!--
+    android:background="#efeeee"
+    -->
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceLarge"
+    android:text="Category"
+    android:id="@+id/textView2"
+    android:textSize="22sp"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true" />
 
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/categorySpinner"
-        android:spinnerMode="dropdown"
-        android:entries="@array/Spending_Categories"
-        android:layout_below="@+id/textView15"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceLarge"
+    android:text="Budget Goal:"
+    android:id="@+id/textView14"
+    android:nestedScrollingEnabled="false"
+    android:textSize="22sp"
+    android:layout_below="@+id/spinner"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true" />
+
+<EditText
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:inputType="numberDecimal"
+    android:ems="10"
+    android:id="@+id/amountField"
+    android:layout_below="@+id/textView14"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true" />
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceLarge"
+    android:text="Goal Date"
+    android:id="@+id/textView15"
+    android:layout_below="@+id/amountField"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:textIsSelectable="false"
+    android:textSize="22sp" />
+
+<Spinner
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/spinner"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:spinnerMode="dropdown"
+    android:entries="@array/Goals_Spending_Categories"
+    android:layout_below="@+id/textView2"
+    android:layout_alignRight="@+id/amountField"
+    android:layout_alignEnd="@+id/amountField" />
+
+<Spinner
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/categorySpinner"
+    android:spinnerMode="dropdown"
+    android:entries="@array/Spending_Categories"
+    android:layout_below="@+id/textView15"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true" />
+
+<ImageView
+    android:layout_width="100sp"
+    android:layout_height="40sp"
+    android:id="@+id/imageView"
+    android:src="@drawable/logo"
+    android:layout_alignTop="@+id/textView2"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentEnd="true" />
+
 </RelativeLayout>

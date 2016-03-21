@@ -29,7 +29,6 @@ public class Spending extends AppCompatActivity {
     private String[] xData = {"Sony", "LG", "Apple,", "Samsung", "Microsoft" };
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

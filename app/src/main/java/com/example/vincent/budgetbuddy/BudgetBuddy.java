@@ -27,7 +27,6 @@ public class BudgetBuddy extends AppCompatActivity {
         FileIO file = new FileIO(this);
 
 
-
         //Handles the recent purchases
         rPurchases = new TextView[3];
         rPurchases[0] = (TextView) findViewById(R.id.textView3);

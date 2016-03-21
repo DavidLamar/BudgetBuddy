@@ -21,7 +21,7 @@
         android:text="Budget: $0"
         android:id="@+id/totalBudget"
         android:textStyle="bold|italic"
-        android:textSize="28sp"
+        android:textSize="24sp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -36,7 +36,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="28dp"
-        android:textSize="25sp" />
+        android:textSize="24sp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -47,7 +47,7 @@
         android:layout_below="@+id/textView3"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textSize="25sp" />
+        android:textSize="24sp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -58,7 +58,7 @@
         android:layout_below="@+id/textView4"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textSize="25sp" />
+        android:textSize="24sp" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -68,8 +68,10 @@
         android:id="@+id/button2"
         android:width="80sp"
         android:height="60sp"
-        android:background="#ffffff"
+        android:background="@drawable/home3"
         android:onClick="selectHomeButton"
+        android:textColor="#3078b8"
+        android:gravity="center|bottom"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -83,11 +85,13 @@
         android:id="@+id/button3"
         android:width="80sp"
         android:height="60sp"
-        android:background="#ffffff"
+        android:background="@drawable/goals3"
         android:onClick="selectGoals"
         android:layout_alignBottom="@+id/button2"
         android:layout_toRightOf="@+id/button2"
-        android:layout_toEndOf="@+id/button2" />
+        android:layout_toEndOf="@+id/button2"
+        android:textColor="#3078b8"
+        android:gravity="center|bottom" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -97,29 +101,31 @@
         android:text="Spending"
         android:id="@+id/button11"
         android:width="80sp"
-        android:textSize="12sp"
         android:height="60sp"
-        android:background="#ffffff"
+        android:background="@drawable/money2"
         android:onClick="selectSpending"
         android:layout_alignBottom="@+id/button3"
         android:layout_toRightOf="@+id/button3"
-        android:layout_toEndOf="@+id/button3" />
+        android:layout_toEndOf="@+id/button3"
+        android:textColor="#3078b8"
+        android:gravity="center|bottom" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2sp"
-        android:text="Add Purchase"
+        android:text="Add"
         android:id="@+id/button12"
         android:width="80sp"
-        android:textSize="12sp"
         android:height="60sp"
-        android:background="#ffffff"
+        android:background="@drawable/add2"
         android:onClick="selectPurchase"
         android:layout_alignBottom="@+id/button11"
         android:layout_toRightOf="@+id/button11"
-        android:layout_toEndOf="@+id/button11" />
+        android:layout_toEndOf="@+id/button11"
+        android:textColor="#3078b8"
+        android:gravity="center|bottom" />
 
     <Button
         android:layout_width="wrap_content"
