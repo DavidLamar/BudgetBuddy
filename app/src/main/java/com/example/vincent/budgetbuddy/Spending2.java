@@ -29,8 +29,7 @@ public class Spending2 extends AppCompatActivity {
     private PieChart mChart;
 
     //AddPurchase addPurch = new AddPurchase();
-    private float[] yData = {15, 10, 25, 20, 30};
-    private String[] xData = {"Food", "Appliances", "Bills,", "Recreation", "House" };
+    private String[] xData = {"Gas", "Entertainment", "Food,", "Bills", "Shopping", "Other" };
 
     //make AddPurch protected
     //private String[] xData = addPurch.paths;
@@ -92,6 +91,43 @@ public class Spending2 extends AppCompatActivity {
     }
 
     public void addData(){
+        int gasProgressStatus = 0;
+        int entertainmentProgressStatus = 0;
+        int foodProgressStatus = 0;
+        int billsProgressStatus = 0;
+        int shoppingProgressStatus = 0;
+        int otherProgressStatus = 0;
+
+        FileIO file = new FileIO(this);
+        //Reads amount spent in each category from file
+        Purchase[] tempPurchaseAmount = file.getPurchases();
+        if (tempPurchaseAmount != null) {
+            for (int i = 0; i < tempPurchaseAmount.length; i++) {
+                if (tempPurchaseAmount[i].getCategory().equalsIgnoreCase("Gas")) {
+                    gasProgressStatus += Integer.parseInt(tempPurchaseAmount[i].getPrice());
+
+                } else if (tempPurchaseAmount[i].getCategory().equalsIgnoreCase("Entertainment")) {
+                    entertainmentProgressStatus += Integer.parseInt(tempPurchaseAmount[i].getPrice());
+
+                } else if (tempPurchaseAmount[i].getCategory().equalsIgnoreCase("Food")) {
+                    foodProgressStatus += Integer.parseInt(tempPurchaseAmount[i].getPrice());
+
+                } else if (tempPurchaseAmount[i].getCategory().equalsIgnoreCase("Bills")) {
+                    billsProgressStatus += Integer.parseInt(tempPurchaseAmount[i].getPrice());
+
+                } else if (tempPurchaseAmount[i].getCategory().equalsIgnoreCase("Shopping")) {
+                    shoppingProgressStatus += Integer.parseInt(tempPurchaseAmount[i].getPrice());
+
+                } else if (tempPurchaseAmount[i].getCategory().equalsIgnoreCase("Other")) {
+                    otherProgressStatus += Integer.parseInt(tempPurchaseAmount[i].getPrice());
+
+                }
+            }
+        }
+        // Adds amount spent in each category to pie chart data
+        int[] yData = {gasProgressStatus, entertainmentProgressStatus, foodProgressStatus,
+                billsProgressStatus, shoppingProgressStatus, otherProgressStatus};
+
         ArrayList<Entry> yVals1 = new ArrayList<Entry>();
 
         for(int i = 0; i < yData.length; i++)
