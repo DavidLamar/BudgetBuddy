@@ -118,6 +118,7 @@
     android:text="Category"
     android:id="@+id/textView2"
     android:textSize="22sp"
+    android:layout_alignTop="@+id/imageView"
     android:layout_alignParentLeft="true"
     android:layout_alignParentStart="true" />
 
@@ -165,7 +166,8 @@
     android:entries="@array/Goals_Spending_Categories"
     android:layout_below="@+id/textView2"
     android:layout_alignRight="@+id/amountField"
-    android:layout_alignEnd="@+id/amountField" />
+    android:layout_alignEnd="@+id/amountField"
+    android:layout_marginTop="6sp" />
 
 <Spinner
     android:layout_width="wrap_content"
@@ -182,7 +184,7 @@
     android:layout_height="40sp"
     android:id="@+id/imageView"
     android:src="@drawable/logo"
-    android:layout_alignTop="@+id/textView2"
+    android:layout_alignParentTop="true"
     android:layout_alignParentRight="true"
     android:layout_alignParentEnd="true" />
 

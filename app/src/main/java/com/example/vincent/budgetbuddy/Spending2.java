@@ -70,7 +70,7 @@ public class Spending2 extends AppCompatActivity {
                     return;
 
                 Toast.makeText(Spending2.this, xData[e.getXIndex()]
-                        + " = " + e.getVal() + "%", Toast.LENGTH_SHORT).show();
+                        + " = " + e.getVal() + "$", Toast.LENGTH_SHORT).show();
             }
 
             @Override

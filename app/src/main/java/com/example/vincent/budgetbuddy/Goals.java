@@ -1,11 +1,13 @@
 package com.example.vincent.budgetbuddy;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -124,7 +126,90 @@ public class Goals extends AppCompatActivity {
         shopping.setProgress(shoppingProgressStatus);
         other.setProgress(otherProgressStatus);
 
+        //Other ProgressBar
+        if((double)otherProgressStatus/(double)otherBudget < 0.5) {
+            other.getProgressDrawable().setColorFilter(
+                    Color.GREEN, android.graphics.PorterDuff.Mode.SRC_IN);
+        }
+         else if((double)otherProgressStatus/(double)otherBudget >= 0.5 &&
+                (double)otherProgressStatus/(double)otherBudget < 0.75) {
+            other.getProgressDrawable().setColorFilter(
+                    Color.YELLOW, android.graphics.PorterDuff.Mode.SRC_IN);
+        }
+        else
+            other.getProgressDrawable().setColorFilter(
+                    Color.RED, android.graphics.PorterDuff.Mode.SRC_IN);
 
+        //Gas ProgressBar
+        if((double)gasProgressStatus/(double)gasBudget < 0.5) {
+            gas.getProgressDrawable().setColorFilter(
+                    Color.GREEN, android.graphics.PorterDuff.Mode.SRC_IN);
+        }
+        else if((double)gasProgressStatus/(double)gasBudget >= 0.5 &&
+                (double)gasProgressStatus/(double)gasBudget < 0.75) {
+            gas.getProgressDrawable().setColorFilter(
+                    Color.YELLOW, android.graphics.PorterDuff.Mode.SRC_IN);
+        }
+        else
+            gas.getProgressDrawable().setColorFilter(
+                    Color.RED, android.graphics.PorterDuff.Mode.SRC_IN);
+
+        //Entertainment ProgressBar
+        Log.i("color", Integer.toString(entertainmentProgressStatus/entertainmentBudget));
+        if((double)entertainmentProgressStatus/(double)entertainmentBudget < 0.5) {
+            entertainment.getProgressDrawable().setColorFilter(
+                    Color.GREEN, android.graphics.PorterDuff.Mode.SRC_IN);
+        }
+        else if((double)entertainmentProgressStatus/(double)entertainmentBudget >= 0.5 &&
+                (double)entertainmentProgressStatus/(double)entertainmentBudget < 0.75) {
+            entertainment.getProgressDrawable().setColorFilter(
+                    Color.YELLOW, android.graphics.PorterDuff.Mode.SRC_IN);
+        }
+        else
+            entertainment.getProgressDrawable().setColorFilter(
+                    Color.RED, android.graphics.PorterDuff.Mode.SRC_IN);
+
+        //Bills ProgressBar
+        if((double)billsProgressStatus/(double)billsBudget < 0.5) {
+            bills.getProgressDrawable().setColorFilter(
+                    Color.GREEN, android.graphics.PorterDuff.Mode.SRC_IN);
+        }
+        else if((double)billsProgressStatus/(double)billsBudget >= 0.5 &&
+                (double)billsProgressStatus/(double)billsBudget < 0.75) {
+            bills.getProgressDrawable().setColorFilter(
+                    Color.YELLOW, android.graphics.PorterDuff.Mode.SRC_IN);
+        }
+        else
+            bills.getProgressDrawable().setColorFilter(
+                    Color.RED, android.graphics.PorterDuff.Mode.SRC_IN);
+
+        //Food ProgressBar
+        if((double)foodProgressStatus/(double)foodBudget < 0.5) {
+            food.getProgressDrawable().setColorFilter(
+                    Color.GREEN, android.graphics.PorterDuff.Mode.SRC_IN);
+        }
+        else if((double)foodProgressStatus/(double)foodBudget >= 0.5 &&
+                (double)foodProgressStatus/(double)foodBudget < 0.75) {
+            food.getProgressDrawable().setColorFilter(
+                    Color.YELLOW, android.graphics.PorterDuff.Mode.SRC_IN);
+        }
+        else
+            food.getProgressDrawable().setColorFilter(
+                    Color.RED, android.graphics.PorterDuff.Mode.SRC_IN);
+
+        //Shopping ProgressBar
+        if((double)shoppingProgressStatus/(double)shoppingBudget < 0.5) {
+            shopping.getProgressDrawable().setColorFilter(
+                    Color.GREEN, android.graphics.PorterDuff.Mode.SRC_IN);
+        }
+        else if((double)shoppingProgressStatus/(double)shoppingBudget >= 0.5 &&
+                (double)shoppingProgressStatus/(double)shoppingBudget < 0.75) {
+            shopping.getProgressDrawable().setColorFilter(
+                    Color.YELLOW, android.graphics.PorterDuff.Mode.SRC_IN);
+        }
+        else
+            shopping.getProgressDrawable().setColorFilter(
+                    Color.RED, android.graphics.PorterDuff.Mode.SRC_IN);
 
         //Creates Textviews
         gasProgress = (TextView) findViewById(R.id.gasProgressDisplay);
