@@ -401,4 +401,14 @@ public class FileIO {
     public void deleteGoal(String name){
 
     }
+
+    public void clearAllUserData(){
+        File goals = new File(activity.getFilesDir(), GOAL_OUTPUT);
+        File purchases = new File(activity.getFilesDir(), PURCHASE_OUTPUT);
+        File categories = new File(activity.getFilesDir(), CATEGORY_OUTPUT);
+
+        goals.delete();
+        purchases.delete();
+        categories.delete();
+    }
 }

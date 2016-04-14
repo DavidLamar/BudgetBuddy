@@ -93,17 +93,6 @@
         android:textIsSelectable="false"
         android:textSize="20sp" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="date"
-        android:ems="10"
-        android:id="@+id/endDateField"
-        android:layout_below="@+id/textView9"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:height="10sp" />
-
     <Button
         android:layout_width="110sp"
         android:layout_height="48sp"
@@ -206,12 +195,10 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Category"
         android:id="@+id/categoryOfPurchase"
-        android:layout_below="@+id/endDateField"
+        android:textSize="20sp"
+        android:layout_below="@+id/setDateButton"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/endDateField"
-        android:layout_alignEnd="@+id/endDateField"
-        android:textSize="20sp" />
+        android:layout_alignParentStart="true" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -232,7 +219,26 @@
         android:src="@drawable/logo"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:longClickable="false"
+        android:nestedScrollingEnabled="false"
+        android:adjustViewBounds="false"
+        android:baselineAlignBottom="false"
+        android:clickable="false"
+        android:contextClickable="false"
+        android:cropToPadding="false" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pick Date"
+        android:id="@+id/setDateButton"
+        android:layout_below="@+id/textView9"
+        android:layout_alignLeft="@+id/categoryOfPurchase"
+        android:layout_alignStart="@+id/categoryOfPurchase"
+        android:onClick="setDate"
+        android:layout_alignRight="@+id/textView9"
+        android:layout_alignEnd="@+id/textView9" />
 
 
 </RelativeLayout>

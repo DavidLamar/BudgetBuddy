@@ -49,7 +49,7 @@ public class SetGoal extends AppCompatActivity {
 
         //Set budget to user input
         EditText amount = (EditText) findViewById(R.id.amountField);
-        setBudget(Integer.parseInt(amount.getText().toString()));
+        setBudget((int)Double.parseDouble(amount.getText().toString()));
 
         //Set Category to category selected
         Spinner mySpinner=(Spinner) findViewById(R.id.spinner);

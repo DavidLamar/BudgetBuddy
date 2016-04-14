@@ -34,7 +34,11 @@
             android:name=".SetGoal"
             android:label="@string/title_activity_set_goal"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Spending2"></activity>
+        <activity android:name=".Spending2" />
+        <activity
+            android:name=".Settings"
+            android:label="@string/title_activity_settings_"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

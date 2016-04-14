@@ -2,8 +2,6 @@ package com.example.vincent.budgetbuddy;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -26,12 +24,14 @@ public class BudgetBuddy extends AppCompatActivity {
 
         FileIO file = new FileIO(this);
 
-
-        //Handles the recent purchases
         rPurchases = new TextView[3];
-        rPurchases[0] = (TextView) findViewById(R.id.textView3);
-        rPurchases[1] = (TextView) findViewById(R.id.textView4);
-        rPurchases[2] = (TextView) findViewById(R.id.textView5);
+        rPurchases[0] = ((TextView) findViewById(R.id.textView3));
+        rPurchases[1] = ((TextView) findViewById(R.id.textView4));
+        rPurchases[2] = ((TextView) findViewById(R.id.textView5));
+        rPurchases[0].setText("");
+        rPurchases[1].setText("");
+        rPurchases[2].setText("");
+        //Handles the recent purchases
         if(file.checkPurchases()){
             Purchase[] tempPurchases = file.getPurchases();
             for(int i = 0; i < 3; i++){
@@ -82,6 +82,7 @@ public class BudgetBuddy extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            startActivity(new Intent(getApplicationContext(), Settings.class));
             return true;
         }
 

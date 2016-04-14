@@ -1,23 +1,36 @@
 package com.example.vincent.budgetbuddy;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
-public class AddPurchase extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+import java.util.Calendar;
+
+public class AddPurchase extends AppCompatActivity implements AdapterView.OnItemSelectedListener, DatePickerDialog.OnDateSetListener {
 
     private Spinner spinner;
     private static final String[] paths = {"Cash", "Check", "Credit", "Debit"};
+
+    Calendar calendar= Calendar.getInstance();
+    DatePickerDialog dialog;
+    private int year = calendar.get(calendar.YEAR);
+    private int month = calendar.get(calendar.MONTH);
+    private int day = calendar.get(calendar.DAY_OF_MONTH);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,23 +46,33 @@ public class AddPurchase extends AppCompatActivity implements AdapterView.OnItem
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
 
-        //REMOVE THIS LATER!!!@ *****************************************************************************************************
-        //deletePurchases();
+        ((Button) findViewById(R.id.setDateButton)).setText(month + "/" + day + "/" + year);
 
+    }
+
+    public void setDate(View view){
+        dialog = new DatePickerDialog(this, this, year, month, day);
+        dialog.show();
     }
 
     public void displayInfo(View view) {
 
-        EditText money = (EditText) findViewById(R.id.moneyField);
-        EditText place = (EditText) findViewById(R.id.placeField);
-        EditText date = (EditText) findViewById(R.id.endDateField);
+        String money = ((EditText) findViewById(R.id.moneyField)).getText().toString();
+        String place = ((EditText) findViewById(R.id.placeField)).getText().toString().replace(" ", "_");
+        String date = month + "/" + day + "/" + year;
         Spinner category = (Spinner) findViewById(R.id.categorySpinner);
         Spinner methodOfPurchase = (Spinner) findViewById(R.id.purchaseType);
 
         String textOfCategory = category.getSelectedItem().toString();
         String textOfMethodPurchase = methodOfPurchase.getSelectedItem().toString();
 
-        Purchase newPurchase = new Purchase(money.getText().toString(), date.getText().toString(), place.getText().toString(), textOfMethodPurchase, textOfCategory);
+        if(money.equals("") || place.equals("")){
+            Toast.makeText(getApplicationContext(), "Cannot have blank cost or location", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+
+        Purchase newPurchase = new Purchase(money, date, place, textOfMethodPurchase, textOfCategory);
         savePurchase(newPurchase);
         /*
         Toast.makeText(getApplicationContext(), "Purchase amount: $" + amount.getText().toString() + "\n" + "Place purchased: "
@@ -106,5 +129,13 @@ public class AddPurchase extends AppCompatActivity implements AdapterView.OnItem
 
     public void deletePurchases(){
 
+    }
+
+    @Override
+    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+        this.year = year;
+        this.month = monthOfYear;
+        this.day = dayOfMonth;
+        ((Button) findViewById(R.id.setDateButton)).setText(month + "/" + day + "/" + year);
     }
 }
