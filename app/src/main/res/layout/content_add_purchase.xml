@@ -114,18 +114,17 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="3sp"
         android:text="Home"
         android:id="@+id/button7"
         android:width="80sp"
         android:height="60sp"
         android:background="@drawable/home3"
         android:onClick="selectHome"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:gravity="center|bottom"
-        android:textColor="#3078b8" />
+        android:textColor="#3078b8"
+        android:layout_alignTop="@+id/button8"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
         <!--
         android:background="#efeeee"
         -->
@@ -134,7 +133,7 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="3sp"
+        android:layout_marginStart="4sp"
         android:text="Goals"
         android:id="@+id/button8"
         android:width="80sp"
@@ -154,7 +153,7 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="3sp"
+        android:layout_marginStart="4sp"
         android:text="Spending"
         android:id="@+id/button9"
         android:width="80sp"
@@ -174,7 +173,7 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="3sp"
+        android:layout_marginStart="4sp"
         android:text="Add "
         android:id="@+id/button10"
         android:width="80sp"
@@ -183,7 +182,7 @@
         android:onClick="selectPurchase"
         android:gravity="center|bottom"
         android:textColor="#3078b8"
-        android:layout_alignTop="@+id/button9"
+        android:layout_below="@+id/button4"
         android:layout_alignLeft="@+id/imageView2"
         android:layout_alignStart="@+id/imageView2" />
         <!--

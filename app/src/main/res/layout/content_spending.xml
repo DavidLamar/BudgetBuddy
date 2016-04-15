@@ -26,6 +26,7 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="2sp"
         android:text="Home"
         android:id="@+id/button21"
         android:width="80sp"
@@ -45,18 +46,18 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="3sp"
+        android:layout_marginStart="4sp"
         android:text="Goals"
         android:id="@+id/button22"
         android:width="80sp"
         android:height="60sp"
         android:background="@drawable/goals3"
         android:onClick="selectGoals"
-        android:layout_alignTop="@+id/button21"
-        android:layout_toRightOf="@+id/button21"
-        android:layout_toEndOf="@+id/button21"
         android:textColor="#3078b8"
-        android:gravity="center|bottom" />
+        android:gravity="center|bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/button21"
+        android:layout_toEndOf="@+id/button21" />
         <!--
         android:background="#efeeee"
         -->
@@ -65,18 +66,18 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="3sp"
+        android:layout_marginStart="4sp"
         android:text="Spending"
         android:id="@+id/button23"
         android:width="80sp"
         android:height="60sp"
         android:background="@drawable/money2"
         android:onClick="selectSpending"
-        android:layout_alignTop="@+id/button22"
-        android:layout_toRightOf="@+id/button22"
-        android:layout_toEndOf="@+id/button22"
         android:gravity="center|bottom"
-        android:textColor="#3078b8" />
+        android:textColor="#3078b8"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/button22"
+        android:layout_toEndOf="@+id/button22" />
         <!--
         android:background="#efeeee"
         -->
@@ -85,6 +86,7 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4sp"
         android:text="Add"
         android:id="@+id/button24"
         android:width="80sp"
@@ -94,8 +96,8 @@
         android:textColor="#3078b8"
         android:gravity="center|bottom"
         android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/imageView4"
-        android:layout_alignStart="@+id/imageView4" />
+        android:layout_toRightOf="@+id/button23"
+        android:layout_toEndOf="@+id/button23" />
         <!--
         android:background="#efeeee"
         -->
