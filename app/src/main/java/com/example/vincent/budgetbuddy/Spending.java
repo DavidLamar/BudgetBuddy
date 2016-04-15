@@ -25,8 +25,8 @@ public class Spending extends AppCompatActivity {
 
     private RelativeLayout mainLayout;
     private PieChart mChart;
-    private float[] yData = {5, 10, 15, 20, 25};
-    private String[] xData = {"Sony", "LG", "Apple,", "Samsung", "Microsoft" };
+    //private float[] yData = {5, 10, 15, 20, 25};
+    private String[] xData = {"Gas", "Entertainment", "Food,", "Bills", "Shopping", "Other"};
 
 
     @Override
@@ -56,7 +56,7 @@ public class Spending extends AppCompatActivity {
 
         BarChart chart = (BarChart) findViewById(R.id.chart);
 
-        BarData data = new BarData(getXAxisValues(), getDataSet());
+        BarData data = new BarData(xData, getDataSet());
         chart.setData(data);
         chart.setDescription("My Chart");
         chart.animateXY(2000, 2000);
@@ -77,6 +77,7 @@ public class Spending extends AppCompatActivity {
     private ArrayList<BarDataSet> getDataSet() {
         ArrayList<BarDataSet> dataSets = null;
 
+        /*
         ArrayList<BarEntry> valueSet1 = new ArrayList<>();
         BarEntry v1e1 = new BarEntry(110.000f, 0); // Jan
         valueSet1.add(v1e1);
@@ -104,45 +105,128 @@ public class Spending extends AppCompatActivity {
         valueSet2.add(v2e5);
         BarEntry v2e6 = new BarEntry(80.000f, 5); // Jun
         valueSet2.add(v2e6);
+        */
 
-        ArrayList<BarEntry> valueSet3 = new ArrayList<>();
-        BarEntry v3e1 = new BarEntry(70.000f, 0); // Jan
-        valueSet3.add(v3e1);
-        BarEntry v3e2 = new BarEntry(55.000f, 1); // Feb
-        valueSet3.add(v3e2);
-        BarEntry v3e3 = new BarEntry(115.000f, 2); // Mar
-        valueSet3.add(v3e3);
-        BarEntry v3e4 = new BarEntry(40.000f, 3); // Apr
-        valueSet3.add(v3e4);
-        BarEntry v3e5 = new BarEntry(40.000f, 4); // May
-        valueSet3.add(v3e5);
-        BarEntry v3e6 = new BarEntry(90.000f, 5); // Jun
-        valueSet3.add(v3e6);
+        int gasProgressStatus = 0;
+        int entertainmentProgressStatus = 0;
+        int foodProgressStatus = 0;
+        int billsProgressStatus = 0;
+        int shoppingProgressStatus = 0;
+        int otherProgressStatus = 0;
 
+        ArrayList<BarEntry> valueSet1 = new ArrayList<>();
+        FileIO file = new FileIO(this);
+        //Reads amount spent in each category from file
+        Purchase[] tempPurchaseAmount = file.getPurchases();
+        if (tempPurchaseAmount != null)
+            for (int i = 0; i < tempPurchaseAmount.length; i++)
+                if (tempPurchaseAmount[i].getCategory().equalsIgnoreCase("Gas"))
+                    gasProgressStatus += (float) Integer.parseInt(tempPurchaseAmount[i].getPrice());
+                    BarEntry v3e1 = new BarEntry(gasProgressStatus, 0); //Gas
+                        valueSet1.add(v3e1);
+
+        //ArrayList<BarEntry> valueSet2 = new ArrayList<>();
+        //Reads amount spent in each category from file
+        Purchase[] tempPurchaseAmount2 = file.getPurchases();
+        if (tempPurchaseAmount2 != null)
+            for (int i = 0; i < tempPurchaseAmount2.length; i++)
+                 if (tempPurchaseAmount2[i].getCategory().equalsIgnoreCase("Entertainment"))
+                    entertainmentProgressStatus += (float) Integer.parseInt(tempPurchaseAmount2[i].getPrice());
+                    BarEntry v3e2 = new BarEntry(entertainmentProgressStatus, 1); // Entertaiment
+                        valueSet1.add(v3e2);
+
+        //ArrayList<BarEntry> valueSet3 = new ArrayList<>();
+        //Reads amount spent in each category from file
+        Purchase[] tempPurchaseAmount3 = file.getPurchases();
+        if (tempPurchaseAmount3 != null)
+            for (int i = 0; i < tempPurchaseAmount3.length; i++)
+                if (tempPurchaseAmount3[i].getCategory().equalsIgnoreCase("Food"))
+                    foodProgressStatus += (float) Integer.parseInt(tempPurchaseAmount3[i].getPrice());
+                    BarEntry v3e3 = new BarEntry(foodProgressStatus, 2); // Food
+                        valueSet1.add(v3e3);
+
+        //ArrayList<BarEntry> valueSet4 = new ArrayList<>();
+        //Reads amount spent in each category from file
+        Purchase[] tempPurchaseAmount4 = file.getPurchases();
+        if (tempPurchaseAmount4 != null)
+            for (int i = 0; i < tempPurchaseAmount4.length; i++)
+                if (tempPurchaseAmount4[i].getCategory().equalsIgnoreCase("Bills"))
+                    billsProgressStatus += (float) Integer.parseInt(tempPurchaseAmount4[i].getPrice());
+                    BarEntry v3e4 = new BarEntry(billsProgressStatus, 3); //Bills
+                        valueSet1.add(v3e4);
+
+        //ArrayList<BarEntry> valueSet5= new ArrayList<>();
+        //Reads amount spent in each category from file
+        Purchase[] tempPurchaseAmount5 = file.getPurchases();
+        if (tempPurchaseAmount5 != null)
+            for (int i = 0; i < tempPurchaseAmount5.length; i++)
+                if (tempPurchaseAmount5[i].getCategory().equalsIgnoreCase("Shopping"))
+                    shoppingProgressStatus += (float) Integer.parseInt(tempPurchaseAmount5[i].getPrice());
+                    BarEntry v3e5 = new BarEntry(shoppingProgressStatus, 4); // Shopping
+                        valueSet1.add(v3e5);
+
+        //ArrayList<BarEntry> valueSet6 = new ArrayList<>();
+        Purchase[] tempPurchaseAmount6 = file.getPurchases();
+        if (tempPurchaseAmount6 != null)
+            for (int i = 0; i < tempPurchaseAmount6.length; i++)
+                if (tempPurchaseAmount6[i].getCategory().equalsIgnoreCase("Other"))
+                    otherProgressStatus += (float) Integer.parseInt(tempPurchaseAmount6[i].getPrice());
+                    BarEntry v3e6 = new BarEntry(otherProgressStatus, 5); // Jun
+                        valueSet1.add(v3e6);
+
+
+        /*
         BarDataSet barDataSet1 = new BarDataSet(valueSet1, "Food");
         barDataSet1.setColor(Color.rgb(0, 155, 0));
         BarDataSet barDataSet2 = new BarDataSet(valueSet2, "Clothing");
         barDataSet2.setColor(Color.rgb(155, 0, 0));
-        BarDataSet barDataSet3 = new BarDataSet(valueSet3, "Bills");
-        barDataSet3.setColor(Color.rgb(0, 0, 155));
+        */
+        BarDataSet barDataSet1 = new BarDataSet(valueSet1, "Spending");
+        barDataSet1.setColor(Color.rgb(0, 0, 155));
+        /*
+        BarDataSet barDataSet2 = new BarDataSet(valueSet2, "Entertainment");
+        barDataSet2.setColor(Color.rgb(155, 0, 155));
+        BarDataSet barDataSet3 = new BarDataSet(valueSet3, "Food");
+        barDataSet3.setColor(Color.rgb(0, 155, 155));
+        BarDataSet barDataSet4 = new BarDataSet(valueSet4, "Bills");
+        barDataSet4.setColor(Color.rgb(0, 155, 0));
+        BarDataSet barDataSet5 = new BarDataSet(valueSet5, "Shopping");
+        barDataSet5.setColor(Color.rgb(155, 0, 0));
+        BarDataSet barDataSet6 = new BarDataSet(valueSet6, "Other");
+        barDataSet6.setColor(Color.rgb(155, 155, 155));
+        */
 
         dataSets = new ArrayList<>();
+
         dataSets.add(barDataSet1);
+        /*
         dataSets.add(barDataSet2);
         dataSets.add(barDataSet3);
+        dataSets.add(barDataSet4);
+        dataSets.add(barDataSet5);
+        dataSets.add(barDataSet6);
+        */
+
         return dataSets;
     }
 
+    /*
     private ArrayList<String> getXAxisValues() {
         ArrayList<String> xAxis = new ArrayList<>();
-        xAxis.add("JAN");
-        xAxis.add("FEB");
-        xAxis.add("MAR");
-        xAxis.add("APR");
-        xAxis.add("MAY");
-        xAxis.add("JUN");
+        for(int i = 0; i < xData.length; i++)
+            xAxis.add(xData[i]);
+
+        xAxis.add("Gas");
+        xAxis.add("Entertainment");
+        xAxis.add("Food");
+        xAxis.add("Bills");
+        xAxis.add("Shopping");
+        xAxis.add("Other");
+
         return xAxis;
     }
+    */
+
 
     public void selectPurchase(View v){
         Button button = (Button)v;

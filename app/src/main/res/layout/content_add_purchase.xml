@@ -174,17 +174,18 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="3sp"
         android:text="Add "
         android:id="@+id/button10"
         android:width="80sp"
         android:height="60sp"
         android:background="@drawable/add2"
         android:onClick="selectPurchase"
-        android:layout_alignTop="@+id/button9"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
         android:gravity="center|bottom"
-        android:textColor="#3078b8" />
+        android:textColor="#3078b8"
+        android:layout_alignTop="@+id/button9"
+        android:layout_alignLeft="@+id/imageView2"
+        android:layout_alignStart="@+id/imageView2" />
         <!--
         android:background="#efeeee"
         -->

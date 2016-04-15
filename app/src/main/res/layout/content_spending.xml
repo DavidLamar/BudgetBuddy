@@ -32,11 +32,11 @@
         android:height="60sp"
         android:background="@drawable/home3"
         android:onClick="selectHome"
+        android:gravity="center|bottom"
+        android:textColor="#3078b8"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:gravity="center|bottom"
-        android:textColor="#3078b8" />
+        android:layout_alignParentStart="true" />
         <!--
         android:background="#efeeee"
         -->
@@ -86,17 +86,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add"
-        android:layout_marginStart="3sp"
         android:id="@+id/button24"
         android:width="80sp"
         android:height="60sp"
         android:background="@drawable/add2"
         android:onClick="selectPurchase"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
         android:textColor="#3078b8"
-        android:gravity="center|bottom" />
+        android:gravity="center|bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/imageView4"
+        android:layout_alignStart="@+id/imageView4" />
         <!--
         android:background="#efeeee"
         -->
