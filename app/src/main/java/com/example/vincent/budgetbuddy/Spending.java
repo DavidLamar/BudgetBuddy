@@ -121,7 +121,7 @@ public class Spending extends AppCompatActivity {
         if (tempPurchaseAmount != null)
             for (int i = 0; i < tempPurchaseAmount.length; i++)
                 if (tempPurchaseAmount[i].getCategory().equalsIgnoreCase("Gas"))
-                    gasProgressStatus += (float) Integer.parseInt(tempPurchaseAmount[i].getPrice());
+                    gasProgressStatus += (float) Double.parseDouble(tempPurchaseAmount[i].getPrice());
                     BarEntry v3e1 = new BarEntry(gasProgressStatus, 0); //Gas
                         valueSet1.add(v3e1);
 
@@ -131,7 +131,7 @@ public class Spending extends AppCompatActivity {
         if (tempPurchaseAmount2 != null)
             for (int i = 0; i < tempPurchaseAmount2.length; i++)
                  if (tempPurchaseAmount2[i].getCategory().equalsIgnoreCase("Entertainment"))
-                    entertainmentProgressStatus += (float) Integer.parseInt(tempPurchaseAmount2[i].getPrice());
+                    entertainmentProgressStatus += (float) Double.parseDouble(tempPurchaseAmount2[i].getPrice());
                     BarEntry v3e2 = new BarEntry(entertainmentProgressStatus, 1); // Entertaiment
                         valueSet1.add(v3e2);
 
@@ -141,7 +141,7 @@ public class Spending extends AppCompatActivity {
         if (tempPurchaseAmount3 != null)
             for (int i = 0; i < tempPurchaseAmount3.length; i++)
                 if (tempPurchaseAmount3[i].getCategory().equalsIgnoreCase("Food"))
-                    foodProgressStatus += (float) Integer.parseInt(tempPurchaseAmount3[i].getPrice());
+                    foodProgressStatus += (float) Double.parseDouble(tempPurchaseAmount3[i].getPrice());
                     BarEntry v3e3 = new BarEntry(foodProgressStatus, 2); // Food
                         valueSet1.add(v3e3);
 
@@ -151,7 +151,7 @@ public class Spending extends AppCompatActivity {
         if (tempPurchaseAmount4 != null)
             for (int i = 0; i < tempPurchaseAmount4.length; i++)
                 if (tempPurchaseAmount4[i].getCategory().equalsIgnoreCase("Bills"))
-                    billsProgressStatus += (float) Integer.parseInt(tempPurchaseAmount4[i].getPrice());
+                    billsProgressStatus += (float) Double.parseDouble(tempPurchaseAmount4[i].getPrice());
                     BarEntry v3e4 = new BarEntry(billsProgressStatus, 3); //Bills
                         valueSet1.add(v3e4);
 
@@ -161,7 +161,7 @@ public class Spending extends AppCompatActivity {
         if (tempPurchaseAmount5 != null)
             for (int i = 0; i < tempPurchaseAmount5.length; i++)
                 if (tempPurchaseAmount5[i].getCategory().equalsIgnoreCase("Shopping"))
-                    shoppingProgressStatus += (float) Integer.parseInt(tempPurchaseAmount5[i].getPrice());
+                    shoppingProgressStatus += (float) Double.parseDouble(tempPurchaseAmount5[i].getPrice());
                     BarEntry v3e5 = new BarEntry(shoppingProgressStatus, 4); // Shopping
                         valueSet1.add(v3e5);
 
@@ -170,7 +170,7 @@ public class Spending extends AppCompatActivity {
         if (tempPurchaseAmount6 != null)
             for (int i = 0; i < tempPurchaseAmount6.length; i++)
                 if (tempPurchaseAmount6[i].getCategory().equalsIgnoreCase("Other"))
-                    otherProgressStatus += (float) Integer.parseInt(tempPurchaseAmount6[i].getPrice());
+                    otherProgressStatus += (float) Double.parseDouble(tempPurchaseAmount6[i].getPrice());
                     BarEntry v3e6 = new BarEntry(otherProgressStatus, 5); // Jun
                         valueSet1.add(v3e6);
 

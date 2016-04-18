@@ -104,22 +104,22 @@ public class Spending2 extends AppCompatActivity {
         if (tempPurchaseAmount != null) {
             for (int i = 0; i < tempPurchaseAmount.length; i++) {
                 if (tempPurchaseAmount[i].getCategory().equalsIgnoreCase("Gas")) {
-                    gasProgressStatus += Integer.parseInt(tempPurchaseAmount[i].getPrice());
+                    gasProgressStatus += Double.parseDouble(tempPurchaseAmount[i].getPrice());
 
                 } else if (tempPurchaseAmount[i].getCategory().equalsIgnoreCase("Entertainment")) {
-                    entertainmentProgressStatus += Integer.parseInt(tempPurchaseAmount[i].getPrice());
+                    entertainmentProgressStatus += Double.parseDouble(tempPurchaseAmount[i].getPrice());
 
                 } else if (tempPurchaseAmount[i].getCategory().equalsIgnoreCase("Food")) {
-                    foodProgressStatus += Integer.parseInt(tempPurchaseAmount[i].getPrice());
+                    foodProgressStatus += Double.parseDouble(tempPurchaseAmount[i].getPrice());
 
                 } else if (tempPurchaseAmount[i].getCategory().equalsIgnoreCase("Bills")) {
-                    billsProgressStatus += Integer.parseInt(tempPurchaseAmount[i].getPrice());
+                    billsProgressStatus += Double.parseDouble(tempPurchaseAmount[i].getPrice());
 
                 } else if (tempPurchaseAmount[i].getCategory().equalsIgnoreCase("Shopping")) {
-                    shoppingProgressStatus += Integer.parseInt(tempPurchaseAmount[i].getPrice());
+                    shoppingProgressStatus += Double.parseDouble(tempPurchaseAmount[i].getPrice());
 
                 } else if (tempPurchaseAmount[i].getCategory().equalsIgnoreCase("Other")) {
-                    otherProgressStatus += Integer.parseInt(tempPurchaseAmount[i].getPrice());
+                    otherProgressStatus += Double.parseDouble(tempPurchaseAmount[i].getPrice());
 
                 }
             }

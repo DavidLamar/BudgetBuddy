@@ -2,6 +2,8 @@ package com.example.vincent.budgetbuddy;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -24,14 +26,12 @@ public class BudgetBuddy extends AppCompatActivity {
 
         FileIO file = new FileIO(this);
 
-        rPurchases = new TextView[3];
-        rPurchases[0] = ((TextView) findViewById(R.id.textView3));
-        rPurchases[1] = ((TextView) findViewById(R.id.textView4));
-        rPurchases[2] = ((TextView) findViewById(R.id.textView5));
-        rPurchases[0].setText("");
-        rPurchases[1].setText("");
-        rPurchases[2].setText("");
+
         //Handles the recent purchases
+        rPurchases = new TextView[3];
+        rPurchases[0] = (TextView) findViewById(R.id.textView3);
+        rPurchases[1] = (TextView) findViewById(R.id.textView4);
+        rPurchases[2] = (TextView) findViewById(R.id.textView5);
         if(file.checkPurchases()){
             Purchase[] tempPurchases = file.getPurchases();
             for(int i = 0; i < 3; i++){
@@ -64,6 +64,17 @@ public class BudgetBuddy extends AppCompatActivity {
             totalBudget.setText("You have no budget set yet...");
         }
 
+
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
+
+
     }
 
     @Override
@@ -82,7 +93,6 @@ public class BudgetBuddy extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            startActivity(new Intent(getApplicationContext(), Settings.class));
             return true;
         }
 
@@ -115,19 +125,13 @@ public class BudgetBuddy extends AppCompatActivity {
         FileIO fileIOTest = new FileIO(this);
         fileIOTest.deletePurchase();
         fileIOTest.deleteGoal();
-        Purchase[] purchases = new Purchase[12];
+        Purchase[] purchases = new Purchase[6];
         purchases[0] = new Purchase("55", "10/10/10", "Somewhere", "Cash", "Food");
         purchases[1] = new Purchase("12", "10/10/11", "Somewhere", "Credit", "Gas");
         purchases[2] = new Purchase("2", "10/10/12", "Somewhere", "Cash", "Entertainment");
         purchases[3] = new Purchase("100", "10/10/13", "Somewhere", "Cash", "Shopping");
         purchases[4] = new Purchase("25", "10/10/14", "Somewhere", "Debit", "Other");
         purchases[5] = new Purchase("60", "10/10/15", "Somewhere", "Cash", "Bills");
-        purchases[6] = new Purchase("125", "10/10/10", "Somewhere", "Credit", "Food");
-        purchases[7] = new Purchase("44", "10/10/11", "Somewhere", "Credit", "Gas");
-        purchases[8] = new Purchase("88", "10/10/12", "Somewhere", "Cash", "Entertainment");
-        purchases[9] = new Purchase("30", "10/10/13", "Somewhere", "Cash", "Shopping");
-        purchases[10] = new Purchase("57", "10/10/14", "Somewhere", "Debit", "Other");
-        purchases[11] = new Purchase("122", "10/10/15", "Somewhere", "Cash", "Bills");
         for(int i = 0; i < purchases.length; i++){
             fileIOTest.addPurchase(purchases[i]);
         }
@@ -136,25 +140,21 @@ public class BudgetBuddy extends AppCompatActivity {
         for(int i = 0; i < test.length; i++){
             testbool = ( testbool &&  purchases[i].getPrice().equals(test[i].getPrice()) && purchases[i].getMethod().equals(test[i].getMethod()) &&
             purchases[i].getLocation().equals(test[i].getLocation()) && purchases[i].getDate().equals(test[i].getDate()) && purchases[i].getCategory().equals(test[i].getCategory()));
-            Log.i("TEST ", purchases[i].getPrice() + " =? " + test[i].getPrice() + " : " + testbool);
-            Log.i("TEST ", purchases[i].getMethod() + " =? " + test[i].getMethod() + " : " + testbool);
-            Log.i("TEST ", purchases[i].getLocation() + " =? " + test[i].getLocation() + " : " + testbool);
-            Log.i("TEST ", purchases[i].getDate() + " =? " + test[i].getDate() + " : " + testbool);
-            Log.i("TEST ", purchases[i].getCategory() + " =? " + test[i].getCategory() + " : " + testbool);
+            Log.i("TEST ", purchases[i].getPrice() + " =? " + test[i].getPrice() + " : " + purchases[i].getPrice().equals(test[i].getPrice()));
+            Log.i("TEST ", purchases[i].getMethod() + " =? " + test[i].getMethod() + " : " + purchases[i].getMethod().equals(test[i].getMethod()));
+            Log.i("TEST ", purchases[i].getLocation() + " =? " + test[i].getLocation() + " : " + purchases[i].getLocation().equals(test[i].getLocation()));
+            Log.i("TEST ", purchases[i].getDate() + " =? " + test[i].getDate() + " : " + purchases[i].getDate().equals(test[i].getDate()));
+            Log.i("TEST ", purchases[i].getCategory() + " =? " + test[i].getCategory() + " : " + purchases[i].getCategory().equals(test[i].getCategory()));
         }
 
         Log.i("TEST ", "Purchases done; All came back: " + testbool);
-        Log.i("TEST ", " ");
+        Log.i("TEST ", "");
 
-        Goal[] goals = new Goal[8];
+        Goal[] goals = new Goal[4];
         goals[0] = new Goal("Gas", 500);
-        goals[1] = new Goal("Shopping", 1000);
-        goals[2] = new Goal("Bills", 778);
-        goals[3] = new Goal("Food", 1234);
-        goals[4] = new Goal("Other", 653);
-        goals[5] = new Goal("Entertainment", 1572);
-        goals[6] = new Goal("SomethingElse", 4567);
-        goals[7] = new Goal("More", 1050);
+        goals[1] = new Goal("SomethingElse", 12);
+        goals[2] = new Goal("Bills", 4500);
+        goals[3] = new Goal("Other", 100);
         for(int i = 0; i < goals.length; i++){
             fileIOTest.addGoal(goals[i]);
         }
@@ -167,7 +167,14 @@ public class BudgetBuddy extends AppCompatActivity {
             Log.i("TEST ", goals[i].getSpendingAmount() + " =? " + test2[i].getSpendingAmount() + " : " + testbool);
         }
         Log.i("TEST ", "Goals done; All came back: " + testbool);
-        Log.i("TEST ", " ");
+        Log.i("TEST ", "");
+
+
+        Category[] categories = new Category[2];
+        categories[0] = new Category("Something");
+        categories[0] = new Category("SomethingElse");
+
+
 
     }
 

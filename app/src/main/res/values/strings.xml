@@ -16,9 +16,9 @@
     </string-array>
 
     <string-array name="Spending_Categories">
-        <item>Daily</item>
-        <item>Weekly</item>
         <item>Monthly</item>
+        <item>Weekly</item>
+        <item>Daily</item>
         <item>Yearly</item>
     </string-array>
     <string name="title_activity_settings_">Settings</string>

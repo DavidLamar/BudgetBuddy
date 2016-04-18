@@ -38,12 +38,12 @@ public class Goals extends AppCompatActivity {
     private TextView shoppingProgress;
     private TextView otherProgress;
 
-    private double gasBudget;
-    private double entertainmentBudget;
-    private double foodBudget;
-    private double billsBudget;
-    private double shoppingBudget;
-    private double otherBudget;
+    private int gasBudget;
+    private int entertainmentBudget;
+    private int foodBudget;
+    private int billsBudget;
+    private int shoppingBudget;
+    private int otherBudget;
 
     private int gasProgressStatus;
     private int entertainmentProgressStatus;
@@ -113,12 +113,12 @@ public class Goals extends AppCompatActivity {
             }
         }
 
-        gas.setMax((int)gasBudget);
-        entertainment.setMax((int)entertainmentBudget);
-        food.setMax((int)foodBudget);
-        bills.setMax((int)billsBudget);
-        shopping.setMax((int)shoppingBudget);
-        other.setMax((int)otherBudget);
+        gas.setMax(gasBudget);
+        entertainment.setMax(entertainmentBudget);
+        food.setMax(foodBudget);
+        bills.setMax(billsBudget);
+        shopping.setMax(shoppingBudget);
+        other.setMax(otherBudget);
         gas.setProgress(gasProgressStatus);
         entertainment.setProgress(entertainmentProgressStatus);
         food.setProgress(foodProgressStatus);
@@ -155,7 +155,7 @@ public class Goals extends AppCompatActivity {
                     Color.RED, android.graphics.PorterDuff.Mode.SRC_IN);
 
         //Entertainment ProgressBar
-        Log.i("color", Double.toString(entertainmentProgressStatus/entertainmentBudget));
+   //     Log.i("color", Double.toString(entertainmentProgressStatus/entertainmentBudget));
         if((double)entertainmentProgressStatus/(double)entertainmentBudget < 0.5) {
             entertainment.getProgressDrawable().setColorFilter(
                     Color.GREEN, android.graphics.PorterDuff.Mode.SRC_IN);
