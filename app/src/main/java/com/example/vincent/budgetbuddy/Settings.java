@@ -53,6 +53,14 @@ public class Settings extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(), About.class));
     }
 
+    public void deletePurchases(View v){
+        FileIO fio = new FileIO(this);
+        fio.deletePurchase();
+    }
+
+    public void viewPurchases(View v){
+        startActivity(new Intent(getApplicationContext(), purchase_history.class));
+    }
 
     public void addListenerOnRatingBar() {
 

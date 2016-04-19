@@ -64,17 +64,6 @@ public class BudgetBuddy extends AppCompatActivity {
             totalBudget.setText("You have no budget set yet...");
         }
 
-
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-
-
     }
 
     @Override
@@ -93,6 +82,7 @@ public class BudgetBuddy extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            startActivity(new Intent(getApplicationContext(), Settings.class));
             return true;
         }
 
@@ -125,13 +115,25 @@ public class BudgetBuddy extends AppCompatActivity {
         FileIO fileIOTest = new FileIO(this);
         fileIOTest.deletePurchase();
         fileIOTest.deleteGoal();
-        Purchase[] purchases = new Purchase[6];
+        Purchase[] purchases = new Purchase[18];
         purchases[0] = new Purchase("55", "10/10/10", "Somewhere", "Cash", "Food");
         purchases[1] = new Purchase("12", "10/10/11", "Somewhere", "Credit", "Gas");
         purchases[2] = new Purchase("2", "10/10/12", "Somewhere", "Cash", "Entertainment");
         purchases[3] = new Purchase("100", "10/10/13", "Somewhere", "Cash", "Shopping");
         purchases[4] = new Purchase("25", "10/10/14", "Somewhere", "Debit", "Other");
         purchases[5] = new Purchase("60", "10/10/15", "Somewhere", "Cash", "Bills");
+        purchases[6] = new Purchase("55", "10/10/10", "Somewhere", "Cash", "Food");
+        purchases[7] = new Purchase("12", "10/10/11", "Somewhere", "Credit", "Gas");
+        purchases[8] = new Purchase("2", "10/10/12", "Somewhere", "Cash", "Entertainment");
+        purchases[9] = new Purchase("100", "10/10/13", "Somewhere", "Cash", "Shopping");
+        purchases[10] = new Purchase("25", "10/10/14", "Somewhere", "Debit", "Other");
+        purchases[11] = new Purchase("60", "10/10/15", "Somewhere", "Cash", "Bills");
+        purchases[12] = new Purchase("55", "10/10/10", "Somewhere", "Cash", "Food");
+        purchases[13] = new Purchase("12", "10/10/11", "Somewhere", "Credit", "Gas");
+        purchases[14] = new Purchase("2", "10/10/12", "Somewhere", "Cash", "Entertainment");
+        purchases[15] = new Purchase("100", "10/10/13", "Somewhere", "Cash", "Shopping");
+        purchases[16] = new Purchase("25", "10/10/14", "Somewhere", "Debit", "Other");
+        purchases[17] = new Purchase("60", "10/10/15", "Somewhere", "Cash", "Bills");
         for(int i = 0; i < purchases.length; i++){
             fileIOTest.addPurchase(purchases[i]);
         }

@@ -22,5 +22,6 @@
         <item>Yearly</item>
     </string-array>
     <string name="title_activity_settings_">Settings</string>
+    <string name="title_activity_purchase_history">Purchase History</string>
 
 </resources>
