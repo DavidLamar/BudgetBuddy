@@ -10,8 +10,12 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class BudgetBuddy extends AppCompatActivity {
 
@@ -28,24 +32,24 @@ public class BudgetBuddy extends AppCompatActivity {
 
 
         //Handles the recent purchases
-        rPurchases = new TextView[3];
-        rPurchases[0] = (TextView) findViewById(R.id.textView3);
-        rPurchases[1] = (TextView) findViewById(R.id.textView4);
-        rPurchases[2] = (TextView) findViewById(R.id.textView5);
         if(file.checkPurchases()){
-            Purchase[] tempPurchases = file.getPurchases();
-            for(int i = 0; i < 3; i++){
-                if(i >= tempPurchases.length){
-                    rPurchases[i].setText("");
-                } else {
-                    rPurchases[i].setText(tempPurchases[tempPurchases.length - (i + 1)].getDate() + " - $" + tempPurchases[tempPurchases.length - (i + 1)].getPrice() + " at: " + tempPurchases[tempPurchases.length - (i + 1)].getLocation());
-                }
+            ListView lv = (ListView) findViewById(R.id.recentPurchases);
+            ArrayList<String> list = new ArrayList<String>();
+            Purchase[] p = file.getPurchases();
+            for(int i = p.length - 1; i >= 0; i--){
+                list.add(p[i].getDate() + " - $" + p[i].getPrice() + " at " + p[i].getLocation() );
             }
+
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
+            lv.setAdapter(adapter);
         } else {
-            rPurchases[0].setText("");
-            rPurchases[1].setText("");
-            rPurchases[2].setText("");
+            ListView lv = (ListView) findViewById(R.id.recentPurchases);
+            ArrayList<String> list = new ArrayList<String>();
+            list.add("No recent purchases...");
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
+            lv.setAdapter(adapter);
         }
+
 
 
 
@@ -116,24 +120,24 @@ public class BudgetBuddy extends AppCompatActivity {
         fileIOTest.deletePurchase();
         fileIOTest.deleteGoal();
         Purchase[] purchases = new Purchase[18];
-        purchases[0] = new Purchase("55", "10/10/10", "Somewhere", "Cash", "Food");
-        purchases[1] = new Purchase("12", "10/10/11", "Somewhere", "Credit", "Gas");
-        purchases[2] = new Purchase("2", "10/10/12", "Somewhere", "Cash", "Entertainment");
-        purchases[3] = new Purchase("100", "10/10/13", "Somewhere", "Cash", "Shopping");
-        purchases[4] = new Purchase("25", "10/10/14", "Somewhere", "Debit", "Other");
-        purchases[5] = new Purchase("60", "10/10/15", "Somewhere", "Cash", "Bills");
-        purchases[6] = new Purchase("55", "10/10/10", "Somewhere", "Cash", "Food");
-        purchases[7] = new Purchase("12", "10/10/11", "Somewhere", "Credit", "Gas");
-        purchases[8] = new Purchase("2", "10/10/12", "Somewhere", "Cash", "Entertainment");
-        purchases[9] = new Purchase("100", "10/10/13", "Somewhere", "Cash", "Shopping");
-        purchases[10] = new Purchase("25", "10/10/14", "Somewhere", "Debit", "Other");
-        purchases[11] = new Purchase("60", "10/10/15", "Somewhere", "Cash", "Bills");
-        purchases[12] = new Purchase("55", "10/10/10", "Somewhere", "Cash", "Food");
-        purchases[13] = new Purchase("12", "10/10/11", "Somewhere", "Credit", "Gas");
-        purchases[14] = new Purchase("2", "10/10/12", "Somewhere", "Cash", "Entertainment");
-        purchases[15] = new Purchase("100", "10/10/13", "Somewhere", "Cash", "Shopping");
-        purchases[16] = new Purchase("25", "10/10/14", "Somewhere", "Debit", "Other");
-        purchases[17] = new Purchase("60", "10/10/15", "Somewhere", "Cash", "Bills");
+        purchases[0] = new Purchase("55", "10/10/10", "Subway", "Cash", "Food");
+        purchases[1] = new Purchase("12", "10/10/11", "GasStation", "Credit", "Gas");
+        purchases[2] = new Purchase("2", "10/10/12", "Movies", "Cash", "Entertainment");
+        purchases[3] = new Purchase("100", "10/10/13", "Mall", "Cash", "Shopping");
+        purchases[4] = new Purchase("55", "10/10/14", "Somewhere", "Debit", "Other");
+        purchases[5] = new Purchase("67", "10/10/15", "Online", "Cash", "Bills");
+        purchases[6] = new Purchase("23", "10/10/16", "PandaExpress", "Cash", "Food");
+        purchases[7] = new Purchase("34", "10/10/17", "GasStation", "Credit", "Gas");
+        purchases[8] = new Purchase("98", "10/10/18", "BestBuy", "Cash", "Entertainment");
+        purchases[9] = new Purchase("87", "10/10/19", "Target", "Cash", "Shopping");
+        purchases[10] = new Purchase("76", "10/10/20", "Somewhere", "Debit", "Other");
+        purchases[11] = new Purchase("123", "10/10/21", "Online", "Cash", "Bills");
+        purchases[12] = new Purchase("14", "10/10/22", "TacoBell", "Cash", "Food");
+        purchases[13] = new Purchase("34", "10/10/23", "Somewhere", "Credit", "Gas");
+        purchases[14] = new Purchase("19", "10/10/24", "Somewhere", "Cash", "Entertainment");
+        purchases[15] = new Purchase("200", "10/10/25", "Mall", "Cash", "Shopping");
+        purchases[16] = new Purchase("35", "10/10/26", "Somewhere", "Debit", "Other");
+        purchases[17] = new Purchase("200", "10/10/27", "Online", "Cash", "Bills");
         for(int i = 0; i < purchases.length; i++){
             fileIOTest.addPurchase(purchases[i]);
         }

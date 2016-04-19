@@ -56,6 +56,8 @@ public class Settings extends AppCompatActivity {
     public void deletePurchases(View v){
         FileIO fio = new FileIO(this);
         fio.deletePurchase();
+        Toast.makeText(getApplicationContext(), "Deleted all user purchases", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(getApplicationContext(), BudgetBuddy.class));
     }
 
     public void viewPurchases(View v){
