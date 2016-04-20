@@ -366,8 +366,12 @@ public class FileIO {
                 String[] s = br.readLine().split("-");
                 Log.i("File ", "____________________Loading text file...__________________________");
                 for(int i = 0; i < s.length; i++){
-                    lines.add(s[i] + "-");
-                    Log.i("File ", "Loading: " + s[i]);
+                    if(s[i].split(" ")[0].equals(g.getCategory())){
+                        continue;
+                    } else {
+                        lines.add(s[i] + "-");
+                        Log.i("File ", "Loading: " + s[i]);
+                    }
                 }
                 fis.close();
             } catch (Exception e) {
