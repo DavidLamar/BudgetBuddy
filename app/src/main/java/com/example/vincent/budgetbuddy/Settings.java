@@ -61,7 +61,12 @@ public class Settings extends AppCompatActivity {
     }
 
     public void viewPurchases(View v){
-        startActivity(new Intent(getApplicationContext(), purchase_history.class));
+
+        if (fio.numberOfPurchases == 0) {
+            Toast.makeText(getApplicationContext(), "There are no recent purchases", Toast.LENGTH_SHORT).show();
+        } else {
+            startActivity(new Intent(getApplicationContext(), purchase_history.class));
+        }
     }
 
     public void addListenerOnRatingBar() {

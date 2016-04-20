@@ -175,22 +175,6 @@
                 android:background="#efeeee"
                 -->
 
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/goalDates"
-                android:spinnerMode="dropdown"
-                android:entries="@array/Spending_Categories"
-                android:layout_alignTop="@+id/textView10"
-                android:layout_toRightOf="@+id/textView10"
-                android:layout_toEndOf="@+id/textView10"
-                android:layout_alignParentEnd="false"
-                android:layout_alignParentStart="false"
-                android:layout_marginLeft="10sp"
-                android:layout_marginTop="10sp"
-                android:layout_marginBottom="10sp"
-                android:layout_marginRight="10sp" />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

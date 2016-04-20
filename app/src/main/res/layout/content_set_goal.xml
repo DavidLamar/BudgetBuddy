@@ -144,19 +144,7 @@
     android:layout_alignParentLeft="true"
     android:layout_alignParentStart="true" />
 
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textAppearance="?android:attr/textAppearanceLarge"
-    android:text="Goal Date"
-    android:id="@+id/textView15"
-    android:layout_below="@+id/amountField"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true"
-    android:textIsSelectable="false"
-    android:textSize="22sp" />
-
-<Spinner
+    <Spinner
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:id="@+id/spinner"
@@ -169,17 +157,7 @@
     android:layout_alignEnd="@+id/amountField"
     android:layout_marginTop="6sp" />
 
-<Spinner
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/categorySpinner"
-    android:spinnerMode="dropdown"
-    android:entries="@array/Spending_Categories"
-    android:layout_below="@+id/textView15"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true" />
-
-<ImageView
+    <ImageView
     android:layout_width="100sp"
     android:layout_height="40sp"
     android:id="@+id/imageView"

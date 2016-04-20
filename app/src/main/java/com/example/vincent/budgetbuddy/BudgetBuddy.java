@@ -50,19 +50,17 @@ public class BudgetBuddy extends AppCompatActivity {
             lv.setAdapter(adapter);
         }
 
-
-
-
         totalBudget = (TextView) findViewById(R.id.totalBudget);
         try {
             // combines total budget across all categories
-            int budgetsCombined = 0;
+            double budgetsCombined = 0;
             Goal[] tempCategoryBudget = file.getGoals();
             for (int i = 0; i < tempCategoryBudget.length; i++) {
                 budgetsCombined += tempCategoryBudget[i].getSpendingAmount();
-            }
-            //sets total budget to textview
 
+            }
+
+            //sets total budget to textview
             totalBudget.setText("Your total budget is $" + budgetsCombined);
         } catch (Exception e){
             totalBudget.setText("You have no budget set yet...");

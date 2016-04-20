@@ -16,6 +16,7 @@ import java.util.ArrayList;
  * Created by David on 2/17/2016.
  */
 public class FileIO {
+    public int numberOfPurchases;
 
     /* These are the names of the files in which our info is being saved*/
     public static final String PURCHASE_OUTPUT = "purchase_data.txt";
@@ -97,7 +98,7 @@ public class FileIO {
             }
 
             fis.close();
-
+            numberOfPurchases = purchases.length;
             return purchases;
 
         } catch(Exception e){

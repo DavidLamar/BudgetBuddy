@@ -1,8 +1,10 @@
 package com.example.vincent.budgetbuddy;
 
+import android.content.ClipData;
 import android.support.test.espresso.assertion.ViewAssertions;
 import android.support.test.runner.AndroidJUnit4;
 
+import org.hamcrest.CoreMatchers;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -35,9 +37,6 @@ public class mainActivityTest {
 
     @Test
     public void allDisplaysOnHomeScreenAreDisplayed() {
-        onView(withId(R.id.textView3)).check(matches(isCompletelyDisplayed()));
-        onView(withId(R.id.textView4)).check(matches(isCompletelyDisplayed()));
-        onView(withId(R.id.textView5)).check(matches(isCompletelyDisplayed()));
         onView(withId(R.id.button2)).check(matches(isCompletelyDisplayed()));
         onView(withId(R.id.button3)).check(matches(isCompletelyDisplayed()));
         onView(withId(R.id.button11)).check(matches(isCompletelyDisplayed()));
@@ -46,7 +45,8 @@ public class mainActivityTest {
     }
 
     @Test
-    public void addPurchaseFunctionality() {
+    public void addPurchaseShopping() {
+        //Add Shopping purchase
         onView(withId(R.id.button12)).perform(click());
         onView(withId(R.id.textView6)).check(matches(isCompletelyDisplayed()));
         onView(withId(R.id.moneyField)).perform(typeText("100.54"));
@@ -55,12 +55,97 @@ public class mainActivityTest {
         onView(withId(R.id.textView8)).check(matches(isCompletelyDisplayed()));
         onView(withId(R.id.purchaseType)).check(matches(isCompletelyDisplayed()));
         onView(withId(R.id.purchaseType)).perform(click());
-        onData(allOf(is(instanceOf(String.class)))).atPosition(0).perform(click());
+        onData(allOf(is(instanceOf(String.class)))).atPosition(2).perform(click());
         onView(withId(R.id.textView9)).check(matches(isCompletelyDisplayed()));
-  //      onView(withId(R.id.endDateField)).perform(typeText("1332106"));
         onView(withId(R.id.categoryOfPurchase)).check(matches(isCompletelyDisplayed()));
         onView(withId(R.id.categorySpinner)).perform(click());
+        onData(allOf(is(instanceOf(String.class)), is("Shopping"))).perform(click());
+        onView(withId(R.id.button4)).perform(click());
+    }
+        @Test
+        public void addPurchaseGas() {
+            //Add Gas purchase
+            onView(withId(R.id.button12)).perform(click());
+            onView(withId(R.id.moneyField)).perform(typeText("25.36"));
+            onView(withId(R.id.textView7)).check(matches(isCompletelyDisplayed()));
+            onView(withId(R.id.placeField)).perform(typeText("Speedway"));
+            onView(withId(R.id.textView8)).check(matches(isCompletelyDisplayed()));
+            onView(withId(R.id.purchaseType)).check(matches(isCompletelyDisplayed()));
+            onView(withId(R.id.purchaseType)).perform(click());
+            onData(allOf(is(instanceOf(String.class)))).atPosition(0).perform(click());
+            onView(withId(R.id.textView9)).check(matches(isCompletelyDisplayed()));
+            onView(withId(R.id.categoryOfPurchase)).check(matches(isCompletelyDisplayed()));
+            onView(withId(R.id.categorySpinner)).perform(click());
+            onData(allOf(is(instanceOf(String.class)), is("Gas"))).perform(click());
+            onView(withId(R.id.button4)).perform(click());
+        }
+    @Test
+    public void addPurchaseFood() {
+        //Add Food purchase
+        onView(withId(R.id.button12)).perform(click());
+        onView(withId(R.id.moneyField)).perform(typeText("52.69"));
+        onView(withId(R.id.textView7)).check(matches(isCompletelyDisplayed()));
+        onView(withId(R.id.placeField)).perform(typeText("FamilyFare"));
+        onView(withId(R.id.textView8)).check(matches(isCompletelyDisplayed()));
+        onView(withId(R.id.purchaseType)).check(matches(isCompletelyDisplayed()));
+        onView(withId(R.id.purchaseType)).perform(click());
+        onData(allOf(is(instanceOf(String.class)))).atPosition(3).perform(click());
+        onView(withId(R.id.textView9)).check(matches(isCompletelyDisplayed()));
+        onView(withId(R.id.categoryOfPurchase)).check(matches(isCompletelyDisplayed()));
+        onView(withId(R.id.categorySpinner)).perform(click());
+        onData(allOf(is(instanceOf(String.class)), is("Food"))).perform(click());
+        onView(withId(R.id.button4)).perform(click());
+    }
+    @Test
+    public void addPurchaseBills() {
+        //Add Bills purchase
+        onView(withId(R.id.button12)).perform(click());
+        onView(withId(R.id.moneyField)).perform(typeText("34.89"));
+        onView(withId(R.id.textView7)).check(matches(isCompletelyDisplayed()));
+        onView(withId(R.id.placeField)).perform(typeText("DTE"));
+        onView(withId(R.id.textView8)).check(matches(isCompletelyDisplayed()));
+        onView(withId(R.id.purchaseType)).check(matches(isCompletelyDisplayed()));
+        onView(withId(R.id.purchaseType)).perform(click());
         onData(allOf(is(instanceOf(String.class)))).atPosition(1).perform(click());
+        onView(withId(R.id.textView9)).check(matches(isCompletelyDisplayed()));
+        onView(withId(R.id.categoryOfPurchase)).check(matches(isCompletelyDisplayed()));
+        onView(withId(R.id.categorySpinner)).perform(click());
+        onData(allOf(is(instanceOf(String.class)), is("Bills"))).perform(click());
+        onView(withId(R.id.categorySpinner)).check(matches(withSpinnerText(containsString("Bills"))));
+        onView(withId(R.id.button4)).perform(click());
+    }
+    @Test
+    public void addPurchaseEntertainment() {
+        //Add Entertainment purchase
+        onView(withId(R.id.button12)).perform(click());
+        onView(withId(R.id.moneyField)).perform(typeText("18.23"));
+        onView(withId(R.id.textView7)).check(matches(isCompletelyDisplayed()));
+        onView(withId(R.id.placeField)).perform(typeText("Celebration Cinema"));
+        onView(withId(R.id.textView8)).check(matches(isCompletelyDisplayed()));
+        onView(withId(R.id.purchaseType)).check(matches(isCompletelyDisplayed()));
+        onView(withId(R.id.purchaseType)).perform(click());
+        onData(allOf(is(instanceOf(String.class)))).atPosition(0).perform(click());
+        onView(withId(R.id.textView9)).check(matches(isCompletelyDisplayed()));
+        onView(withId(R.id.categoryOfPurchase)).check(matches(isCompletelyDisplayed()));
+        onView(withId(R.id.categorySpinner)).perform(click());
+        onData(allOf(is(instanceOf(String.class)), is("Entertainment"))).perform(click());
+        onView(withId(R.id.button4)).perform(click());
+    }
+    @Test
+    public void addPurchaseOther() {
+        //Add Other purchase
+        onView(withId(R.id.button12)).perform(click());
+        onView(withId(R.id.moneyField)).perform(typeText("15"));
+        onView(withId(R.id.textView7)).check(matches(isCompletelyDisplayed()));
+        onView(withId(R.id.placeField)).perform(typeText("Pay Sister back"));
+        onView(withId(R.id.textView8)).check(matches(isCompletelyDisplayed()));
+        onView(withId(R.id.purchaseType)).check(matches(isCompletelyDisplayed()));
+        onView(withId(R.id.purchaseType)).perform(click());
+        onData(allOf(is(instanceOf(String.class)))).atPosition(0).perform(click());
+        onView(withId(R.id.textView9)).check(matches(isCompletelyDisplayed()));
+        onView(withId(R.id.categoryOfPurchase)).check(matches(isCompletelyDisplayed()));
+        onView(withId(R.id.categorySpinner)).perform(click());
+        onData(allOf(is(instanceOf(String.class)), is("Other"))).perform(click());
         onView(withId(R.id.button4)).perform(click());
     }
 
@@ -85,12 +170,15 @@ public class mainActivityTest {
         onView(withId(R.id.otherTextView)).check(matches(isCompletelyDisplayed()));
         onView(withId(R.id.otherProgressBar)).check(matches(isCompletelyDisplayed()));
         onView(withId(R.id.otherProgressDisplay)).check(matches(isCompletelyDisplayed()));
+        onView(withId(R.id.otherProgressDisplay)).equals(75);
+
         onView(withId(R.id.button)).perform(click());
 
     }
 
     @Test
     public void addGoalsFunctionality() {
+        // Entertainment Budget
         onView(withId(R.id.button3)).perform(click());
         onView(withId(R.id.button5)).perform(click());
         onView(withId(R.id.textView2)).check(matches(isCompletelyDisplayed()));
@@ -98,17 +186,53 @@ public class mainActivityTest {
         onData(allOf(is(instanceOf(String.class)))).atPosition(1).perform(click());
         onView(withId(R.id.textView14)).check(matches(isCompletelyDisplayed()));
         onView(withId(R.id.amountField)).perform(typeText("75"));
-        onView(withId(R.id.textView15)).check(matches(isCompletelyDisplayed()));
-        onView(withId(R.id.categorySpinner)).perform(click());
+        onView(withId(R.id.submitBudget)).perform(click());
+        // Gas Budget
+        onView(withId(R.id.button5)).perform(click());
+        onView(withId(R.id.textView2)).check(matches(isCompletelyDisplayed()));
+        onView(withId(R.id.spinner)).perform(click());
         onData(allOf(is(instanceOf(String.class)))).atPosition(0).perform(click());
+        onView(withId(R.id.textView14)).check(matches(isCompletelyDisplayed()));
+        onView(withId(R.id.amountField)).perform(typeText("125"));
+        onView(withId(R.id.submitBudget)).perform(click());
+        // Food Budget
+        onView(withId(R.id.button5)).perform(click());
+        onView(withId(R.id.textView2)).check(matches(isCompletelyDisplayed()));
+        onView(withId(R.id.spinner)).perform(click());
+        onData(allOf(is(instanceOf(String.class)))).atPosition(2).perform(click());
+        onView(withId(R.id.textView14)).check(matches(isCompletelyDisplayed()));
+        onView(withId(R.id.amountField)).perform(typeText("65"));
+        onView(withId(R.id.submitBudget)).perform(click());
+        // Bills Budget
+        onView(withId(R.id.button5)).perform(click());
+        onView(withId(R.id.textView2)).check(matches(isCompletelyDisplayed()));
+        onView(withId(R.id.spinner)).perform(click());
+        onData(allOf(is(instanceOf(String.class)))).atPosition(3).perform(click());
+        onView(withId(R.id.textView14)).check(matches(isCompletelyDisplayed()));
+        onView(withId(R.id.amountField)).perform(typeText("500"));
+        onView(withId(R.id.submitBudget)).perform(click());
+        // Shopping Budget
+        onView(withId(R.id.button5)).perform(click());
+        onView(withId(R.id.textView2)).check(matches(isCompletelyDisplayed()));
+        onView(withId(R.id.spinner)).perform(click());
+        onData(allOf(is(instanceOf(String.class)))).atPosition(4).perform(click());
+        onView(withId(R.id.textView14)).check(matches(isCompletelyDisplayed()));
+        onView(withId(R.id.amountField)).perform(typeText("126"));
+        onView(withId(R.id.submitBudget)).perform(click());
+        // Other Budget
+        onView(withId(R.id.button5)).perform(click());
+        onView(withId(R.id.textView2)).check(matches(isCompletelyDisplayed()));
+        onView(withId(R.id.spinner)).perform(click());
+        onData(allOf(is(instanceOf(String.class)))).atPosition(5).perform(click());
+        onView(withId(R.id.textView14)).check(matches(isCompletelyDisplayed()));
+        onView(withId(R.id.amountField)).perform(typeText("50"));
         onView(withId(R.id.submitBudget)).perform(click());
     }
 
     @Test
-    public void spendingFunctionality() {
+     public void spendingFunctionality() {
         onView(withId(R.id.button11)).perform(click());
         onView(withId(R.id.graph2)).perform(click());
-
-
+        onView(withId(R.id.chart2)).perform(click());
     }
 }
